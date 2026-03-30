@@ -13,3 +13,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# node modules
+node_modules/
+.astro/
+dist/
