@@ -1,0 +1,35 @@
+---
+interface Props {
+  type?: 'info' | 'warning' | 'tip';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+
+const styles = {
+  info: "border-[#4464AD]/20 bg-[#D0D7F2]/30 dark:border-[#4464AD]/40 dark:bg-[#4464AD]/10 text-[#111112] dark:text-[#EDECF8]",
+  warning: "border-amber-500/30 bg-amber-50 dark:border-amber-500/40 dark:bg-amber-500/10 text-amber-900 dark:text-amber-100",
+  tip: "border-emerald-500/30 bg-emerald-50 dark:border-emerald-500/40 dark:bg-emerald-500/10 text-emerald-900 dark:text-emerald-100",
+};
+
+const icons = {
+  info: "ℹ️",
+  warning: "⚠️",
+  tip: "💡",
+};
+
+const currentStyle = styles[type] || styles.info;
+const currentIcon = icons[type] || icons.info;
+---
+
+<div class={`my-6 rounded-xl border p-5 ${currentStyle}`}>
+  <div class="flex items-start gap-3">
+    <div class="mt-0.5 shrink-0 text-xl" aria-hidden="true">{currentIcon}</div>
+    <div class="space-y-2">
+      {title && <h4 class="font-medium tracking-tight mb-1">{title}</h4>}
+      <div class="text-[0.95rem] leading-relaxed opacity-90">
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
