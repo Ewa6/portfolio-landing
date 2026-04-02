@@ -115,7 +115,78 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+
+  /* Documentation-style Blog Typography */
+  .article-content {
+    @apply text-[1.125rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2];
+  }
+
+  .article-content h2 {
+    @apply text-2xl font-semibold text-[#111112] dark:text-[#EDECF8] mt-14 mb-6 scroll-mt-24;
+  }
+
+  .article-content h3 {
+    @apply text-xl font-medium text-[#111112] dark:text-[#EDECF8] mt-10 mb-5 scroll-mt-24;
+  }
+
+  .article-content p {
+    @apply mb-6;
+  }
+
+  .article-content ul {
+    @apply list-disc pl-6 mb-6 space-y-2.5;
+  }
+
+  .article-content ol {
+    @apply list-decimal pl-6 mb-6 space-y-2.5;
+  }
+
+  .article-content li::marker {
+    @apply text-[#4464AD] dark:text-[#A3B8EE] opacity-70;
+  }
+
+  .article-content a {
+    @apply font-medium text-[#4464AD] dark:text-[#A3B8EE] underline decoration-[#D0D7F2] dark:decoration-[#434448] hover:text-[#4498AD] dark:hover:text-[#6BC1D6] underline-offset-4 transition-all duration-200;
+  }
+
+  .article-content strong {
+    @apply font-semibold text-[#111112] dark:text-[#EDECF8];
+  }
+
+  .article-content blockquote {
+    @apply border-l-4 border-[#D0D7F2] dark:border-[#434448] pl-5 md:pl-6 italic text-[#434448]/80 dark:text-[#D0D7F2]/80 my-8;
+  }
+
+  .article-content code {
+    @apply bg-[#D0D7F2]/40 dark:bg-[#434448]/40 px-1.5 py-0.5 rounded text-[0.85em] font-mono text-[#111112] dark:text-[#EDECF8];
+  }
+
+  .article-content pre {
+    @apply bg-[#111112] text-[#EDECF8] dark:bg-[#111112] p-5 rounded-xl overflow-x-auto my-8 text-[0.9em] border border-[#D0D7F2]/20 shadow-sm;
+  }
+
+  .article-content pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  .article-content img {
+    @apply rounded-xl border border-[#D0D7F2] dark:border-[#434448] shadow-sm my-10 max-w-full h-auto;
+  }
+
+  /* Heading Anchor Links */
+  .heading-link {
+    @apply ml-2.5 opacity-0 transition-opacity text-[#D0D7F2] dark:text-[#434448] hover:text-[#4464AD] dark:hover:text-[#A3B8EE] no-underline focus:opacity-100;
+  }
+
+  .article-content h2:hover .heading-link,
+  .article-content h3:hover .heading-link {
+    @apply opacity-100;
   }
 }

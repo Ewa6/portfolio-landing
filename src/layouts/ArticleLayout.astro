@@ -1,0 +1,59 @@
+---
+import Layout from "./Layout.astro";
+import TableOfContents from "../components/TableOfContents.astro";
+
+const { frontmatter, headings } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} — Ewa Jabłońska`}>
+  <main class="max-w-3xl mx-auto px-6 py-20 md:py-32">
+    <article>
+      <header class="mb-12">
+        {/* <a href="/" class="text-[#4464AD] dark:text-[#A3B8EE] hover:underline mb-8 inline-block text-[0.95rem] font-medium transition-colors hover:text-[#4498AD] dark:hover:text-[#6BC1D6]">
+          ← Back to Portfolio
+        </a> */}
+        
+        <div class="flex items-center gap-3 text-sm text-[#434448] dark:text-[#D0D7F2] opacity-80 mb-6">
+          {frontmatter.date && <time datetime={frontmatter.date}>{new Date(frontmatter.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>}
+          {frontmatter.tags && (
+            <>
+              <span aria-hidden="true">•</span>
+              <div class="flex gap-2">
+                {frontmatter.tags.map((tag: string) => (
+                  <span class="bg-[#D0D7F2]/40 dark:bg-[#434448]/40 px-2 py-0.5 rounded-full text-xs font-medium">{tag}</span>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-[#111112] dark:text-[#EDECF8] tracking-tight mb-6 leading-tight">
+          {frontmatter.title}
+        </h1>
+
+        {frontmatter.description && (
+          <p class="text-[1.35rem] text-[#434448] dark:text-[#D0D7F2] leading-relaxed opacity-90">
+            {frontmatter.description}
+          </p>
+        )}
+      </header>
+
+      {frontmatter.editorNote && (
+        <div class="mb-12 bg-[#D0D7F2]/20 dark:bg-[#4464AD]/10 border-l-4 border-[#4464AD] dark:border-[#A3B8EE] p-5 rounded-r-xl">
+          <p class="text-xs font-bold uppercase tracking-widest text-[#4464AD] dark:text-[#A3B8EE] mb-2">Editor's Note</p>
+          <div class="text-[#434448] dark:text-[#D0D7F2] text-[0.95rem] leading-relaxed">
+            {frontmatter.editorNote}
+          </div>
+        </div>
+      )}
+
+      {headings && headings.length > 0 && (
+        <TableOfContents headings={headings} />
+      )}
+
+      <div class="article-content mt-12 md:mt-16">
+        <slot />
+      </div>
+    </article>
+  </main>
+</Layout>
