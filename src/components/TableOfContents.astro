@@ -25,7 +25,7 @@ const toc = headings.filter((h) => h.depth > 1 && h.depth < 4);
             href={`#${heading.slug}`}
             class="text-[#434448] dark:text-[#D0D7F2] hover:text-[#4464AD] dark:hover:text-[#A3B8EE] transition-colors line-clamp-2"
           >
-            {heading.text}
+            {heading.text.replace(/\s*#$/, '')}
           </a>
         </li>
       ))}
