@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Agentic Assistant — Ewa Jabłońska"
+  description="Documentation project for an AI-powered invoice retrieval tool. Covers user docs (Confluence) and developer docs (docs-as-code)."
+>
+  <main class="max-w-3xl mx-auto px-6 py-20 md:py-32">
+
+    <nav class="mb-12">
+      <a
+        href="/portfolio"
+        class="inline-flex items-center gap-1.5 text-sm font-medium text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#4498AD] dark:hover:text-[#6BC1D6] transition-colors duration-200"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        Portfolio
+      </a>
+    </nav>
+
+    <header class="mb-16">
+      <span class="text-xs font-semibold uppercase tracking-widest text-[#4464AD] dark:text-[#A3B8EE] mb-3 block">
+        Featured project
+      </span>
+      <h1 class="text-4xl md:text-5xl font-bold text-[#111112] dark:text-[#EDECF8] tracking-tight mb-6">
+        Agentic Assistant
+      </h1>
+      <p class="text-xl leading-relaxed text-[#434448] dark:text-[#D0D7F2] max-w-2xl">
+        An AI-powered tool that automatically retrieves invoices from email.
+        The documentation separates user docs (Confluence) from developer docs (docs-as-code),
+        while keeping both aligned within one project.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {["Confluence", "GitHub", "Jira", "REST API"].map((tag) => (
+          <span class="text-xs px-2.5 py-1 rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20 text-[#4464AD] dark:text-[#A3B8EE] font-medium">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </header>
+
+    <div class="inline-flex items-center rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/30 px-4 py-1.5 text-sm font-medium text-[#4464AD] dark:text-[#A3B8EE]">
+      <span class="mr-2">🚧</span> Content coming soon
+    </div>
+
+    <footer class="mt-24 md:mt-32 pt-8 border-t border-[#D0D7F2] dark:border-[#434448] text-sm flex flex-col md:flex-row justify-between items-center gap-4 text-[#434448] dark:text-[#D0D7F2] opacity-80">
+      <p>&copy; {new Date().getFullYear()} Ewa Jabłońska</p>
+    </footer>
+
+  </main>
+</Layout>
