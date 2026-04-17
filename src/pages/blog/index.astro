@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import ContentHeader from "../../components/ContentHeader.astro";
 
 // ── Discover all blog posts from the pages/blog directory.
 // We exclude the index itself and sort by date descending.
@@ -91,71 +92,13 @@ function formatDate(dateStr: string | null): string {
     <main class="max-w-3xl mx-auto px-6 py-20 md:py-32">
         <div class="space-y-20 md:space-y-28">
             {/* ── 1. Page hero / H1 ───────────────────────────────── */}
-            <section aria-labelledby="blog-heading" class="pb-2">
-                {/* Kicker label */}
-                <p
-                    class="text-xs font-semibold uppercase tracking-[0.18em] text-[#5944AD] dark:text-[#A096D9] mb-4"
-                >
-                    Ewa Jabłońska
-                </p>
-
-                {/* Visible H1 */}
-                <h1
-                    id="blog-heading"
-                    class="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] mb-6"
-                    style="background: linear-gradient(135deg, #A096D9 0%, #9DAFE6 60%, #4498AD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
-                >
-                    Blog
-                </h1>
-
-                {/* Decorative rule */}
-                <div
-                    class="w-12 h-1 rounded-full bg-gradient-to-r from-[#5944AD] to-[#4464AD] mb-8 opacity-70"
-                >
-                </div>
-
-                {/* Intro copy */}
-                <div
-                    class="space-y-4 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] max-w-2xl"
-                >
-                    <p>
-                        This is where I think out loud about technical writing —
-                        not as an isolated skill, but as a layer within a larger
-                        system of documentation, tooling, and process.
-                    </p>
-                    <p>
-                        The articles here connect to the same questions I work
-                        through in the portfolio: what makes documentation
-                        useful, how process shapes output, and where automation
-                        can help. Think of this as the editorial thread running
-                        alongside the work.
-                    </p>
-                </div>
-
-                <div class="mt-8">
-                    <a
-                        href="/portfolio"
-                        id="back-to-portfolio"
-                        class="inline-flex items-center gap-2 text-sm text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors duration-200"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            aria-hidden="true"
-                        >
-                            <path d="M19 12H5M12 19l-7-7 7-7"></path>
-                        </svg>
-                        Back to portfolio
-                    </a>
-                </div>
-            </section>
+            <ContentHeader
+                title="Blog"
+                kicker="Ewa Jabłońska"
+                description="This is where I think out loud about technical writing — not as an isolated skill, but as a layer within a larger system of documentation, tooling, and process."
+                backUrl="/portfolio"
+                backLabel="Back to portfolio"
+            />
 
             {/* ── 2. Post listing ─────────────────────────────────── */}
             {
