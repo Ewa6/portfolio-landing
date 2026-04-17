@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ContentHeader from "../../components/ContentHeader.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
 
 // ── Discover all blog posts from the pages/blog directory.
 // We exclude the index itself and sort by date descending.
@@ -114,15 +115,10 @@ function formatDate(dateStr: string | null): string {
                         <section
                             aria-labelledby={`cat-${label.toLowerCase().replace(/\s+/g, "-")}`}
                         >
-                            <div class="flex items-center gap-4 mb-6">
-                                <h2
-                                    id={`cat-${label.toLowerCase().replace(/\s+/g, "-")}`}
-                                    class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]"
-                                >
-                                    {label}
-                                </h2>
-                                <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]" />
-                            </div>
+                            <SectionHeader
+                                title={label}
+                                id={`cat-${label.toLowerCase().replace(/\s+/g, "-")}`}
+                            />
                             <ul class="space-y-4" role="list">
                                 {catPosts.map((post, i) => (
                                     <li>
@@ -190,15 +186,10 @@ function formatDate(dateStr: string | null): string {
                 ) : (
                     /* Flat list — only one category or none */
                     <section aria-labelledby="all-posts-heading">
-                        <div class="flex items-center gap-4 mb-6">
-                            <h2
-                                id="all-posts-heading"
-                                class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]"
-                            >
-                                Articles
-                            </h2>
-                            <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]" />
-                        </div>
+                        <SectionHeader
+                            title="Articles"
+                            id="all-posts-heading"
+                        />
                         <ul class="space-y-4" role="list">
                             {posts.map((post, i) => (
                                 <li>

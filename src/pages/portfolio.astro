@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 ---
 
 <script is:inline>
@@ -13,12 +14,15 @@ import Layout from "../layouts/Layout.astro";
     <main class="max-w-3xl mx-auto px-6 py-20 md:py-32">
         <div class="space-y-20 md:space-y-28">
             {/* ── 0. Page hero / H1 ─────────────────────────────── */}
-            <section aria-labelledby="portfolio-heading" class="pb-2">
+            <section
+                aria-labelledby="portfolio-heading"
+                class="pb-2 flex flex-col items-center text-center"
+            >
                 {/* Logo */}
                 <img
                     src="/logo.png"
                     alt="Ewa Jabłońska Logo"
-                    class="h-20 md:h-24 w-auto mb-8 drop-shadow-sm"
+                    class="h-32 md:h-48 w-auto mb-8 drop-shadow-sm"
                 />
 
                 {/* Kicker label */}
@@ -39,36 +43,27 @@ import Layout from "../layouts/Layout.astro";
 
                 {/* Decorative rule */}
                 <div
-                    class="w-12 h-1 rounded-full bg-gradient-to-r from-[#5944AD] to-[#4464AD] mb-8 opacity-70"
+                    class="w-12 h-1 rounded-full bg-gradient-to-r from-[#5944AD] to-[#4464AD] mx-auto mb-8 opacity-70"
                 >
                 </div>
 
                 {/* Tagline */}
-                <p
-                    class="text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] max-w-2xl"
+                <div
+                    class="text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] max-w-xl mx-auto"
                 >
                     <p>Technical writing is more than content.</p>
                     <br />
                     <p>
                         This portfolio explores how documentation, tooling, and
                         process come together in practice. It reflects that
-                        through projects experiments, and continuous learning.
+                        through projects, experiments, and continuous learning.
                     </p>
-                </p>
+                </div>
             </section>
 
             {/* ── 1. Concept / Hero ─────────────────────────────── */}
             <section aria-labelledby="concept-heading">
-                <div class="flex items-center gap-4 mb-6">
-                    <h2
-                        id="concept-heading"
-                        class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]"
-                    >
-                        Concept
-                    </h2>
-                    <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]">
-                    </div>
-                </div>
+                <SectionHeader title="Concept" id="concept-heading" />
 
                 <div class="grid md:grid-cols-2 gap-10 items-start">
                     <div
@@ -101,16 +96,7 @@ import Layout from "../layouts/Layout.astro";
 
             {/* ── 2. Projects ───────────────────────────────────── */}
             <section aria-labelledby="projects-heading">
-                <div class="flex items-center gap-4 mb-6">
-                    <h2
-                        id="projects-heading"
-                        class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]"
-                    >
-                        Projects
-                    </h2>
-                    <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]">
-                    </div>
-                </div>
+                <SectionHeader title="Projects" id="projects-heading" />
 
                 {/* Featured project */}
                 <div class="mb-8">
@@ -153,19 +139,21 @@ import Layout from "../layouts/Layout.astro";
                         <p
                             class="text-[0.9375rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
                         >
-                            The tool automatically retrieves invoices from email
-                            using an AI agent. The documentation project
-                            separates user documentation (Confluence) and
-                            developer docs (docs-as-code), while keeping them
-                            aligned within one project.
+                            An AI-powered assistant for everyday tasks,
+                            documented with both users and developers in mind.
+                            This project consists of a user manual created in
+                            Confluence and developer documentation written in
+                            Markdown (docs-as-code). The docs-as-code content is
+                            rendered into an accessible static site, so it can
+                            be used without working directly in the repository.
                         </p>
                         <div class="mt-4 flex flex-wrap gap-2">
                             {
                                 [
+                                    "Developer documentation",
+                                    "User documentation",
                                     "Confluence",
-                                    "GitHub",
-                                    "Jira",
-                                    "REST API",
+                                    "Docs-as-code",
                                 ].map((tag) => (
                                     <span class="text-xs px-2.5 py-1 rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20 text-[#4464AD] dark:text-[#A3B8EE] font-medium">
                                         {tag}
@@ -208,8 +196,9 @@ import Layout from "../layouts/Layout.astro";
                         <p
                             class="text-[0.875rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
                         >
-                            REST API documentation with examples, endpoint
-                            reference, and integration guidance.
+                            REST API documentation created as the final project
+                            for the University of Washington API documentation
+                            course.
                         </p>
                     </a>
 
@@ -222,7 +211,7 @@ import Layout from "../layouts/Layout.astro";
                             <h3
                                 class="text-base font-semibold text-[#111112] dark:text-[#EDECF8]"
                             >
-                                Mobile Documentation
+                                Mobile App Documentation
                             </h3>
                             <span
                                 class="text-[0.7rem] font-semibold uppercase tracking-wider text-[#898A90] dark:text-[#65666C] bg-[#D7D7D9]/50 dark:bg-[#434448]/30 px-2 py-0.5 rounded-full"
@@ -233,8 +222,9 @@ import Layout from "../layouts/Layout.astro";
                         <p
                             class="text-[0.875rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
                         >
-                            Mobile app documentation covering user flows, UI
-                            reference, and release notes.
+                            Documentation for a mobile application that adapts
+                            my technical writing approach to a different product
+                            type.
                         </p>
                     </div>
                 </div>
@@ -242,74 +232,128 @@ import Layout from "../layouts/Layout.astro";
 
             {/* ── 3. Process ────────────────────────────────────── */}
             <section aria-labelledby="process-heading">
-                <div class="flex items-center gap-4 mb-6">
-                    <h2
-                        id="process-heading"
-                        class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]"
-                    >
-                        Process
-                    </h2>
-                    <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]">
-                    </div>
+                <SectionHeader title="Process" id="process-heading" />
+
+                <div
+                    class="space-y-4 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] mb-8"
+                >
+                    <p>
+                        I manage this project in Jira, from drafting to
+                        deployment.
+                    </p>
+                    <p>
+                        What started as an overwhelming set of ideas became a
+                        structured workflow. I broke it down into epics,
+                        sprints, and tasks. Jira is integrated with GitHub, so
+                        tickets connect directly to commits and deployments.
+                    </p>
+                    <p>
+                        I also use Confluence to document the process itself.
+                        Together, these tools show not just the outputs, but how
+                        I plan, organize, and deliver the work.
+                    </p>
                 </div>
-                <p
-                    class="text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] mb-6"
-                >
-                    Showing the work is managed through Jira — from scoping and
-                    drafting to review and release. Planning artifacts, ticket
-                    structures, and sprint breakdowns are part of the portfolio,
-                    not just the outputs.
-                </p>
-                <a
-                    href="#"
-                    id="jira-board-link"
-                    aria-label="View Jira board — placeholder"
-                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[#4498AD] dark:border-[#4498AD] text-[#4498AD] dark:text-[#58C1DB] text-sm font-medium hover:bg-[#4498AD]/10 dark:hover:bg-[#4498AD]/15 transition-all duration-200"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="15"
-                        height="15"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a
+                        href="#"
+                        id="jira-board-link"
+                        aria-label="View Jira board — placeholder"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#4498AD] dark:bg-[#4498AD] text-white text-sm font-medium hover:bg-[#3b8599] dark:hover:bg-[#58C1DB] hover:text-white dark:hover:text-[#111112] transition-all duration-200"
                     >
-                        <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                        <path d="M9 9h6M9 12h6M9 15h4"></path>
-                    </svg>
-                    View Jira board
-                </a>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <rect x="3" y="3" width="18" height="18" rx="2"
+                            ></rect>
+                            <path d="M9 9h6M9 12h6M9 15h4"></path>
+                        </svg>
+                        View Jira board
+                    </a>
+                    <a
+                        href="#"
+                        id="confluence-docs-link"
+                        aria-label="View Confluence docs — placeholder"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-[#4498AD] dark:border-[#58C1DB] text-[#4498AD] dark:text-[#58C1DB] text-sm font-medium hover:bg-[#4498AD]/10 dark:hover:bg-[#58C1DB]/10 transition-all duration-200"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                            ></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        View Confluence docs
+                    </a>
+                </div>
             </section>
 
             {/* ── 4. Writing ────────────────────────────────────── */}
             <section aria-labelledby="writing-heading">
-                <div class="flex items-center gap-4 mb-6">
-                    <h2
-                        id="writing-heading"
-                        class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]"
-                    >
-                        Writing
-                    </h2>
-                    <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]">
-                    </div>
+                <SectionHeader title="Blog" id="writing-heading" />
+
+                <div
+                    class="space-y-4 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] mb-6"
+                >
+                    <p>
+                        Posts from my earlier technical writing blog, revisited
+                        and updated to reflect how I approach the field today.
+                    </p>
+                    <p>
+                        This section remains a space for exploring ideas,
+                        approaches, and questions around technical writing.
+                    </p>
                 </div>
 
-                <p
-                    class="text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] mb-6"
-                >
-                    Legacy blog posts rewritten and republished with a
-                    documentation-first approach — clarity over style, structure
-                    over impression.
-                </p>
+                {/* Blog navigation */}
+                <div class="mb-5">
+                    <a
+                        href="/blog"
+                        class="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-[#5944AD] dark:text-[#A096D9] hover:text-[#432f8f] dark:hover:text-[#C5B3F1] transition-colors duration-200 group"
+                    >
+                        View all posts
+                        <svg
+                            class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
 
                 {/* Post preview card */}
                 <a
-                    href="/blog"
-                    id="blog-index-link"
+                    href="/blog/technical-writing-might-frustrate-you"
+                    id="featured-post-link"
                     class="group block border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 hover:border-[#5944AD] dark:hover:border-[#7B6CC7] hover:shadow-md transition-all duration-200 bg-white/50 dark:bg-[#191138]/30 mb-4"
                 >
                     <div class="flex items-start justify-between gap-4">
@@ -363,30 +407,16 @@ import Layout from "../layouts/Layout.astro";
                         </svg>
                     </div>
                 </a>
-
-                {/* More coming hint */}
-                <p class="text-xs text-[#65666C] dark:text-[#898A90]">
-                    More posts coming — publishing when there are at least 3.
-                </p>
             </section>
 
             {/* ── 5. Contact ────────────────────────────────────── */}
             <section aria-labelledby="contact-heading">
-                <div class="flex items-center gap-4 mb-6">
-                    <h2
-                        id="contact-heading"
-                        class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]"
-                    >
-                        Contact
-                    </h2>
-                    <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]">
-                    </div>
-                </div>
+                <SectionHeader title="Contact" id="contact-heading" />
                 <p
                     class="text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] mb-6"
                 >
-                    If you'd like to connect, discuss a project, or follow the
-                    work in progress:
+                    If you'd like to connect, discuss ideas, or ask about the
+                    project:
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3">
                     <a
@@ -411,6 +441,30 @@ import Layout from "../layouts/Layout.astro";
                             <circle cx="4" cy="4" r="2"></circle>
                         </svg>
                         LinkedIn
+                    </a>
+                    <a
+                        href="mailto:ewa.k.jablonska@gmail.com"
+                        id="contact-email"
+                        class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-[#4464AD] dark:border-[#4464AD] text-[#4464AD] dark:text-[#A3B8EE] text-sm font-medium hover:bg-[#4464AD]/10 dark:hover:bg-[#4464AD]/15 transition-all duration-200"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <rect x="2" y="4" width="20" height="16" rx="2"
+                            ></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                            ></path>
+                        </svg>
+                        Email
                     </a>
                     <a
                         href="#"
