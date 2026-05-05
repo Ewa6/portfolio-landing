@@ -1,95 +1,194 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Technical Writing Portfolio — WIP">
   <main class="max-w-3xl mx-auto px-6 py-20 md:py-32">
-      
-      <header class="mb-16 md:mb-24 text-center">
-        <img src="/logo.png" alt="Ewa Jabłońska Logo" class="h-48 md:h-64 w-auto mx-auto mb-8" />
-        <h1 class="text-4xl md:text-5xl font-bold text-[#111112] dark:text-[#EDECF8] tracking-tight mb-4">
-          Ewa Jabłońska
-        </h1>
-        <p class="text-xl md:text-2xl font-light text-[#4464AD] dark:text-[#A3B8EE]">
-          Technical Writing Portfolio
-        </p>
-      </header>
+    <header class="mb-16 md:mb-24 text-center">
+      <img
+        src="/logo.png"
+        alt="Ewa Jabłońska Logo"
+        class="h-48 md:h-64 w-auto mx-auto mb-8"
+      />
+      <h1
+        class="text-4xl md:text-5xl font-bold text-[#111112] dark:text-[#EDECF8] tracking-tight mb-4"
+      >
+        Ewa Jabłońska
+      </h1>
+      <p
+        class="text-xl md:text-2xl font-light text-[#4464AD] dark:text-[#A3B8EE]"
+      >
+        Technical Writing Portfolio
+      </p>
+    </header>
 
-      <div class="space-y-16 md:space-y-20">
-        <section>
-          <div class="flex items-center gap-4 mb-6">
-            <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">Introduction</h2>
-            <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
-          </div>
-          <div class="space-y-4">
-            <p class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]">
-              I’m a technical writer focused on documentation systems, information architecture, and continuous improvement.
-            </p>
-            <p class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]">
-              My work combines structured content, automation, and process to make documentation scalable, maintainable, and useful in real-world environments.
-            </p>
-          </div>
-        </section>
-
-        <section>
-          <div class="flex items-center gap-4 mb-6">
-            <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">Portfolio Concept</h2>
-            <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
-          </div>
-          <div class="space-y-5 leading-relaxed text-lg text-[#434448] dark:text-[#D0D7F2]">
-            <p>This portfolio is built as a connected system of four areas:</p>
-            <ul class="list-disc pl-6 space-y-2">
-              <li><strong>Content</strong> &ndash; clear, structured documentation (Confluence) and blog posts.</li>
-              <li><strong>Process</strong> &ndash; planning and iteration (Jira).</li>
-              <li><strong>Code</strong> &ndash; automation and tooling (GitHub).</li>
-              <li><strong>Integration</strong> &ndash; connecting tools through APIs.</li>
-            </ul>
-            <p>The goal is not just to present writing samples, but to show how documentation works as part of a larger ecosystem.</p>
-          </div>
-          <div class="mt-8">
-            <img src="/Audience Engagement Venn Diagram smaller.png" alt="Audience Engagement Venn Diagram" class="w-full max-w-2xl h-auto rounded-xl border border-[#D0D7F2] dark:border-[#434448] shadow-sm" />
-          </div>
-        </section>
-
-        <section>
-          <div class="flex items-center gap-4 mb-6">
-            <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">Current Status</h2>
-            <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
-          </div>
-          <div class="inline-flex items-center rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/30 px-4 py-1.5 text-sm font-medium text-[#4464AD] dark:text-[#A3B8EE] mb-4">
-            <span class="mr-2">🚧</span> Work in Progress
-          </div>
-          <div class="space-y-4 leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]">
-            <p>I’m currently developing this portfolio through a set of parallel, real-world experiments and artifacts, including:</p>
-            <ul class="list-disc pl-6 space-y-2">
-              <li>Confluence documentation and structured content for a dedicated use case.</li>
-              <li>Confluence-based artifacts exploring documentation design and organization.</li>
-              <li>API experiments with accompanying documentation.</li>
-              <li>Republishing and refining selected blog content.</li>
-            </ul>
-            <p>This portfolio is being built iteratively, with each component contributing to a broader documentation system.</p>
-          </div>
-        </section>
-
-        <section>
-          <div class="flex items-center gap-4 mb-6">
-            <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">Contact</h2>
-            <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
-          </div>
-          <p class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]">
-            If you’d like to connect or follow the progress of this project, feel free to reach out on 
-            <a href="https://www.linkedin.com/in/ejablonska" target="_blank" rel="noopener noreferrer" class="font-medium text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#4498AD] dark:hover:text-[#6BC1D6] underline decoration-[#D0D7F2] dark:decoration-[#434448] hover:decoration-[#4498AD] dark:hover:decoration-[#6BC1D6] underline-offset-4 transition-all duration-200">LinkedIn</a>.
-          </p>
-        </section>
-      </div>
-
-      <footer class="mt-24 md:mt-32 pt-8 border-t border-[#D0D7F2] dark:border-[#434448] text-sm flex flex-col md:flex-row justify-between items-center gap-4 text-[#434448] dark:text-[#D0D7F2] opacity-80">
-        <p>&copy; {new Date().getFullYear()} Ewa Jabłońska</p>
-        <div class="flex items-center gap-6">
-          <span class="opacity-70">Built with Astro</span>
-          <a href="https://github.com/Ewa6/portfolio-landing" target="_blank" rel="noopener noreferrer" class="text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors">View repo</a>
+    <div class="space-y-16 md:space-y-20">
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
+            Introduction
+          </h2>
+          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
         </div>
-      </footer>
+        <div class="space-y-4">
+          <p
+            class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]"
+          >
+            I’m a technical writer focused on documentation systems, information
+            architecture, and continuous improvement.
+          </p>
+          <p
+            class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]"
+          >
+            My work combines structured content, automation, and process to make
+            documentation scalable, maintainable, and useful in real-world
+            environments.
+          </p>
+        </div>
+      </section>
 
-    </main>
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
+            Portfolio Concept
+          </h2>
+          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
+        </div>
+        <div
+          class="space-y-5 leading-relaxed text-lg text-[#434448] dark:text-[#D0D7F2]"
+        >
+          <p>This portfolio is built as a connected system of four areas:</p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>
+              <strong>Content</strong> &ndash; clear, structured documentation (Confluence)
+              and blog posts.
+            </li>
+            <li>
+              <strong>Process</strong> &ndash; planning and iteration (Jira).
+            </li>
+            <li>
+              <strong>Code</strong> &ndash; automation and tooling (GitHub).
+            </li>
+            <li>
+              <strong>Integration</strong> &ndash; connecting tools through APIs.
+            </li>
+          </ul>
+          <p>
+            The goal is not just to present writing samples, but to show how
+            documentation works as part of a larger ecosystem.
+          </p>
+        </div>
+        <div class="mt-8">
+          <img
+            src="/Audience Engagement Venn Diagram smaller.png"
+            alt="Audience Engagement Venn Diagram"
+            class="w-full max-w-2xl h-auto rounded-xl border border-[#D0D7F2] dark:border-[#434448] shadow-sm"
+          />
+        </div>
+      </section>
+
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
+            Current Status
+          </h2>
+          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
+        </div>
+        <div
+          class="inline-flex items-center rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/30 px-4 py-1.5 text-sm font-medium text-[#4464AD] dark:text-[#A3B8EE] mb-4"
+        >
+          <span class="mr-2">🚧</span> Work in Progress
+        </div>
+        <div
+          class="space-y-4 leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]"
+        >
+          <p>
+            I’m currently developing this portfolio through a set of parallel,
+            real-world experiments and artifacts, including:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>
+              Confluence documentation and structured content for a dedicated
+              use case.
+            </li>
+            <li>
+              Confluence-based artifacts exploring documentation design and
+              organization.
+            </li>
+            <li>Republishing and refining selected blog content.</li>
+          </ul>
+          <p>
+            This portfolio is being built iteratively, with each component
+            contributing to a broader documentation system.
+          </p>
+        </div>
+      </section>
+
+      <section aria-label="Portfolio preview">
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
+            Portfolio preview
+          </h2>
+          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
+        </div>
+        <div
+          class="rounded-xl border border-[#D0D7F2] dark:border-[#4464AD]/50 border-l-4 border-l-[#4464AD] dark:border-l-[#5944AD] bg-[#D0D7F2]/25 dark:bg-[#4464AD]/10 p-6 md:p-8"
+        >
+          <p
+            class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2] mb-6"
+          >
+            I'm currently building a technical writing portfolio that connects
+            documentation, tooling, and process. Some sections are still in
+            progress, but you can already preview the structure, selected
+            writing, and project workflow.
+          </p>
+          <a
+            href="/portfolio/"
+            id="portfolio-preview-cta"
+            class="inline-flex items-center gap-2 rounded-lg border border-[#4464AD] dark:border-[#4464AD] px-5 py-2.5 text-sm font-medium text-[#4464AD] dark:text-[#A3B8EE] transition-all duration-200 hover:bg-[#4464AD] hover:text-white dark:hover:bg-[#4464AD]/20 dark:hover:text-[#D0D7F2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4464AD]"
+          >
+            Preview the portfolio →
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
+            Contact
+          </h2>
+          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
+        </div>
+        <p
+          class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]"
+        >
+          If you’d like to connect or follow the progress of this project, feel
+          free to reach out on
+          <a
+            href="https://www.linkedin.com/in/ejablonska"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-medium text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#4498AD] dark:hover:text-[#6BC1D6] underline decoration-[#D0D7F2] dark:decoration-[#434448] hover:decoration-[#4498AD] dark:hover:decoration-[#6BC1D6] underline-offset-4 transition-all duration-200"
+            >LinkedIn</a
+          >.
+        </p>
+      </section>
+    </div>
+
+    <footer
+      class="mt-24 md:mt-32 pt-8 border-t border-[#D0D7F2] dark:border-[#434448] text-sm flex flex-col md:flex-row justify-between items-center gap-4 text-[#434448] dark:text-[#D0D7F2] opacity-80"
+    >
+      <p>&copy; {new Date().getFullYear()} Ewa Jabłońska</p>
+      <div class="flex items-center gap-6">
+        <span class="opacity-70">Built with Astro</span>
+        <a
+          href="https://github.com/Ewa6/portfolio-landing"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors"
+          >View repo</a
+        >
+      </div>
+    </footer>
+  </main>
 </Layout>

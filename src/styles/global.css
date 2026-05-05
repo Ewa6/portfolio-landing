@@ -180,6 +180,32 @@
     @apply rounded-xl border border-[#D0D7F2] dark:border-[#434448] shadow-sm my-10 max-w-full h-auto;
   }
 
+  /* ── Portfolio quick-nav ───────────────────────────────────────── */
+
+  .portfolio-quicknav {
+    @apply flex flex-wrap items-center gap-x-4 gap-y-3 text-sm;
+  }
+
+  .portfolio-quicknav__label {
+    @apply text-xs font-semibold uppercase tracking-[0.15em] text-[#4464AD] dark:text-[#A3B8EE] shrink-0;
+  }
+
+  .portfolio-quicknav__list {
+    @apply flex flex-wrap gap-2 list-none p-0 m-0;
+  }
+
+  .portfolio-quicknav__pill {
+    @apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium border border-[#D0D7F2] dark:border-[#434448] bg-[#EDECF8]/60 dark:bg-[#162444]/40 text-[#4464AD] dark:text-[#A3B8EE] transition-all duration-200 no-underline;
+  }
+
+  .portfolio-quicknav__pill:hover {
+    @apply border-[#4498AD] dark:border-[#58C1DB] bg-[#4498AD]/10 dark:bg-[#58C1DB]/10 text-[#3b8599] dark:text-[#58C1DB] shadow-sm;
+  }
+
+  .portfolio-quicknav__pill:focus-visible {
+    @apply outline-none ring-2 ring-offset-2 ring-[#4498AD] dark:ring-[#58C1DB] ring-offset-white dark:ring-offset-[#081024];
+  }
+
   /* Heading Anchor Links */
   .heading-link {
     @apply ml-2.5 opacity-0 transition-opacity text-[#D0D7F2] dark:text-[#434448] hover:text-[#4464AD] dark:hover:text-[#A3B8EE] no-underline focus:opacity-100;
