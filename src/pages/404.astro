@@ -1,23 +1,74 @@
 ---
+import Layout from "../layouts/Layout.astro";
+
 const title = "Page not found";
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>{title} • TW Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  </head>
-  <body class="min-h-screen flex items-center justify-center p-8">
-    <main class="max-w-md text-center">
-      <img src="/favicon.png" alt="" class="mx-auto mb-6 w-16 h-16" />
-      <h1 class="text-3xl font-semibold mb-3">404 — That page doesn`t exist</h1>
-      <p class="opacity-80 mb-6">
-        This page doesn`t seem to exist anymore. Let`s get you back on track.
-      </p>
-      <a href="/" class="inline-block rounded-2xl px-5 py-3 font-medium border">
-        Go home
-      </a>
-    </main>
-  </body>
-</html>
+
+<script is:inline>
+  document.documentElement.classList.add("dark");
+</script>
+
+<Layout title={`${title} • TW Portfolio`}>
+  <main
+    class="min-h-[70vh] flex flex-col items-center justify-center p-8 max-w-2xl mx-auto text-center"
+  >
+    {/* Logo */}
+    <img 
+      src="/logo.png" 
+      alt="Portfolio Logo" 
+      class="h-32 md:h-48 w-auto mb-8 drop-shadow-sm" 
+    />
+
+    {/* Kicker label */}
+    <p
+      class="text-sm font-semibold uppercase tracking-[0.18em] text-[#4464AD] dark:text-[#A3B8EE] mb-4"
+    >
+      Error 404
+    </p>
+
+    {/* Visible H1 */}
+    <h1
+      class="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] mb-6"
+      style="background: linear-gradient(135deg, #A096D9 0%, #9DAFE6 60%, #4498AD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+    >
+      That page doesn't exist
+    </h1>
+
+    {/* Decorative rule */}
+    <div
+      class="w-12 h-1 rounded-full bg-gradient-to-r from-[#5944AD] to-[#4464AD] mx-auto mb-8 opacity-70"
+    >
+    </div>
+
+    {/* Tagline */}
+    <p
+      class="text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] max-w-lg mb-10 mx-auto"
+    >
+      This page doesn't seem to exist anymore. Let's get you back on track to
+      exploring my portfolio.
+    </p>
+
+    {/* Button */}
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[#4464AD] dark:border-[#4464AD] text-[#4464AD] dark:text-[#A3B8EE] text-base font-medium hover:bg-[#4464AD]/10 dark:hover:bg-[#4464AD]/15 transition-all duration-200"
+    >
+      Return to Portfolio
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        class="ml-1"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </main>
+</Layout>
