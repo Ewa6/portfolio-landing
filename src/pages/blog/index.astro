@@ -5,7 +5,7 @@ import SectionHeader from "../../components/SectionHeader.astro";
 
 // ── Discover all blog posts from the pages/blog directory.
 // We exclude the index itself and sort by date descending.
-const allPosts = await Astro.glob("./*.mdx");
+const allPosts = Object.values(import.meta.glob("./*.mdx", { eager: true }));
 
 const posts = allPosts
     .map((post) => ({
