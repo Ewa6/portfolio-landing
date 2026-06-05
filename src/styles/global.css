@@ -182,6 +182,30 @@
 
   /* ── Portfolio quick-nav ───────────────────────────────────────── */
 
+  .portfolio-live-preview {
+    @apply relative overflow-hidden rounded-xl border border-[#D0D7F2] dark:border-[#434448] bg-[#EDECF8]/55 dark:bg-[#162444]/45 px-5 py-4 md:px-6 shadow-sm;
+  }
+
+  .portfolio-live-preview::before {
+    @apply absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#58C1DB] via-[#4464AD] to-[#A096D9] content-[''];
+  }
+
+  .portfolio-live-preview__eyebrow {
+    @apply flex items-center gap-2.5 text-[#4464AD] dark:text-[#A3B8EE] mb-3;
+  }
+
+  .portfolio-live-preview__dot {
+    @apply h-2 w-2 rounded-full bg-[#58C1DB] shadow-[0_0_0_4px_rgba(88,193,219,0.14)] shrink-0;
+  }
+
+  .portfolio-live-preview__eyebrow h2 {
+    @apply text-xs font-semibold uppercase tracking-[0.16em];
+  }
+
+  .portfolio-live-preview__content {
+    @apply space-y-2.5 text-[0.9375rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2];
+  }
+
   .portfolio-quicknav {
     @apply flex flex-wrap items-center gap-x-4 gap-y-3 text-sm;
   }

@@ -1,194 +1,599 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 ---
 
-<Layout title="Technical Writing Portfolio — WIP">
-  <main class="max-w-3xl mx-auto px-6 py-20 md:py-32">
-    <header class="mb-16 md:mb-24 text-center">
-      <img
-        src="/logo.png"
-        alt="Ewa Jabłońska Logo"
-        class="h-48 md:h-64 w-auto mx-auto mb-8"
-      />
-      <h1
-        class="text-4xl md:text-5xl font-bold text-[#111112] dark:text-[#EDECF8] tracking-tight mb-4"
-      >
-        Ewa Jabłońska
-      </h1>
-      <p
-        class="text-xl md:text-2xl font-light text-[#4464AD] dark:text-[#A3B8EE]"
-      >
-        Technical Writing Portfolio
-      </p>
-    </header>
+<script is:inline>
+    document.documentElement.classList.add("dark");
+</script>
 
-    <div class="space-y-16 md:space-y-20">
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
-            Introduction
-          </h2>
-          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
-        </div>
-        <div class="space-y-4">
-          <p
-            class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]"
-          >
-            I’m a technical writer focused on documentation systems, information
-            architecture, and continuous improvement.
-          </p>
-          <p
-            class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]"
-          >
-            My work combines structured content, automation, and process to make
-            documentation scalable, maintainable, and useful in real-world
-            environments.
-          </p>
-        </div>
-      </section>
+<Layout
+    title="Portfolio — Ewa Jabłońska"
+    description="A connected technical writing portfolio: documentation, process, code, and APIs working as one system."
+>
+    <main class="max-w-3xl mx-auto px-6 py-8 md:py-10">
+        <div class="space-y-16 md:space-y-20">
+            <div class="space-y-6 md:space-y-7">
+            {/* ── 0. Page hero / H1 ─────────────────────────────── */}
+            <section
+                aria-labelledby="portfolio-heading"
+                class="flex flex-col items-center text-center"
+            >
+                {/* Logo */}
+                <img
+                    src="/logo.png"
+                    alt="Ewa Jabłońska Logo"
+                    class="h-40 md:h-52 w-auto mb-4 drop-shadow-sm"
+                />
 
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
-            Portfolio Concept
-          </h2>
-          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
-        </div>
-        <div
-          class="space-y-5 leading-relaxed text-lg text-[#434448] dark:text-[#D0D7F2]"
-        >
-          <p>This portfolio is built as a connected system of four areas:</p>
-          <ul class="list-disc pl-6 space-y-2">
-            <li>
-              <strong>Content</strong> &ndash; clear, structured documentation (Confluence)
-              and blog posts.
-            </li>
-            <li>
-              <strong>Process</strong> &ndash; planning and iteration (Jira).
-            </li>
-            <li>
-              <strong>Code</strong> &ndash; automation and tooling (GitHub).
-            </li>
-            <li>
-              <strong>Integration</strong> &ndash; connecting tools through APIs.
-            </li>
-          </ul>
-          <p>
-            The goal is not just to present writing samples, but to show how
-            documentation works as part of a larger ecosystem.
-          </p>
-        </div>
-        <div class="mt-8">
-          <img
-            src="/Audience Engagement Venn Diagram smaller.png"
-            alt="Audience Engagement Venn Diagram"
-            class="w-full max-w-2xl h-auto rounded-xl border border-[#D0D7F2] dark:border-[#434448] shadow-sm"
-          />
-        </div>
-      </section>
+                {/* Kicker label */}
+                <p
+                    class="text-xs font-semibold uppercase tracking-[0.18em] text-[#4464AD] dark:text-[#A3B8EE] mb-3"
+                >
+                    Technical Writing Portfolio
+                </p>
 
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
-            Current Status
-          </h2>
-          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
-        </div>
-        <div
-          class="inline-flex items-center rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/30 px-4 py-1.5 text-sm font-medium text-[#4464AD] dark:text-[#A3B8EE] mb-4"
-        >
-          <span class="mr-2">🚧</span> Work in Progress
-        </div>
-        <div
-          class="space-y-4 leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]"
-        >
-          <p>
-            I’m currently developing this portfolio through a set of parallel,
-            real-world experiments and artifacts, including:
-          </p>
-          <ul class="list-disc pl-6 space-y-2">
-            <li>
-              Confluence documentation and structured content for a dedicated
-              use case.
-            </li>
-            <li>
-              Confluence-based artifacts exploring documentation design and
-              organization.
-            </li>
-            <li>Republishing and refining selected blog content.</li>
-          </ul>
-          <p>
-            This portfolio is being built iteratively, with each component
-            contributing to a broader documentation system.
-          </p>
-        </div>
-      </section>
+                {/* Visible H1 */}
+                <h1
+                    id="portfolio-heading"
+                    class="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] mb-4"
+                    style="background: linear-gradient(135deg, #A096D9 0%, #9DAFE6 60%, #4498AD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+                >
+                    Ewa Jabłońska
+                </h1>
 
-      <section aria-label="Portfolio preview">
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
-            Portfolio preview
-          </h2>
-          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
-        </div>
-        <div
-          class="rounded-xl border border-[#D0D7F2] dark:border-[#4464AD]/50 border-l-4 border-l-[#4464AD] dark:border-l-[#5944AD] bg-[#D0D7F2]/25 dark:bg-[#4464AD]/10 p-6 md:p-8"
-        >
-          <p
-            class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2] mb-6"
-          >
-            I'm currently building a technical writing portfolio that connects
-            documentation, tooling, and process. Some sections are still in
-            progress, but you can already preview the structure, selected
-            writing, and project workflow.
-          </p>
-          <a
-            href="/portfolio/"
-            id="portfolio-preview-cta"
-            class="inline-flex items-center gap-2 rounded-lg border border-[#4464AD] dark:border-[#4464AD] px-5 py-2.5 text-sm font-medium text-[#4464AD] dark:text-[#A3B8EE] transition-all duration-200 hover:bg-[#4464AD] hover:text-white dark:hover:bg-[#4464AD]/20 dark:hover:text-[#D0D7F2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4464AD]"
-          >
-            Preview the portfolio →
-          </a>
-        </div>
-      </section>
+                {/* Decorative rule */}
+                <div
+                    class="w-12 h-1 rounded-full bg-gradient-to-r from-[#5944AD] to-[#4464AD] mx-auto mb-6 opacity-70"
+                >
+                </div>
 
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="text-2xl font-medium text-[#111112] dark:text-[#EDECF8]">
-            Contact
-          </h2>
-          <div class="h-px flex-1 bg-[#D0D7F2] dark:bg-[#434448]"></div>
-        </div>
-        <p
-          class="leading-relaxed text-lg max-w-2xl text-[#434448] dark:text-[#D0D7F2]"
-        >
-          If you’d like to connect or follow the progress of this project, feel
-          free to reach out on
-          <a
-            href="https://www.linkedin.com/in/ejablonska"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#4498AD] dark:hover:text-[#6BC1D6] underline decoration-[#D0D7F2] dark:decoration-[#434448] hover:decoration-[#4498AD] dark:hover:decoration-[#6BC1D6] underline-offset-4 transition-all duration-200"
-            >LinkedIn</a
-          >.
-        </p>
-      </section>
-    </div>
+                {/* Tagline */}
+                <div
+                    class="space-y-4 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] max-w-xl mx-auto"
+                >
+                    <p>Technical writing is more than content.</p>
+                    <p>
+                        This portfolio explores how documentation, tooling, and
+                        process come together in practice. It reflects that
+                        through projects, experiments, and continuous learning.
+                    </p>
+                </div>
+            </section>
 
-    <footer
-      class="mt-24 md:mt-32 pt-8 border-t border-[#D0D7F2] dark:border-[#434448] text-sm flex flex-col md:flex-row justify-between items-center gap-4 text-[#434448] dark:text-[#D0D7F2] opacity-80"
-    >
-      <p>&copy; {new Date().getFullYear()} Ewa Jabłońska</p>
-      <div class="flex items-center gap-6">
-        <span class="opacity-70">Built with Astro</span>
-        <a
-          href="https://github.com/Ewa6/portfolio-landing"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors"
-          >View repo</a
+            {/* ── Quick-nav ─────────────────────────────────────── */}
+            <aside class="portfolio-live-preview" aria-labelledby="live-preview-heading">
+                <div class="portfolio-live-preview__eyebrow">
+                    <span class="portfolio-live-preview__dot" aria-hidden="true"></span>
+                    <h2 id="live-preview-heading">Live preview</h2>
+                </div>
+                <div class="portfolio-live-preview__content">
+                    <p>
+                        This portfolio is being developed iteratively. Several
+                        sections, for example the API documentation, are already
+                        available to explore, while the featured Agentic
+                        Assistant project is still in active development.
+                    </p>
+                    <p>
+                        I’ve published this early version to share both the
+                        completed work and how the portfolio evolves over time.
+                    </p>
+                </div>
+            </aside>
+
+            <nav aria-label="Portfolio sections" class="portfolio-quicknav">
+                <span class="portfolio-quicknav__label"
+                    >Explore the portfolio:</span
+                >
+                <ul class="portfolio-quicknav__list" role="list">
+                    <li>
+                        <a href="#projects" class="portfolio-quicknav__pill"
+                            >Projects</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#process" class="portfolio-quicknav__pill"
+                            >Process</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#blog" class="portfolio-quicknav__pill">Blog</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#contact" class="portfolio-quicknav__pill"
+                            >Contact</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+            </div>
+
+            {/* ── 1. Concept / Hero ─────────────────────────────── */}
+            <section aria-labelledby="concept-heading">
+                <SectionHeader title="Concept" id="concept-heading" />
+
+                <div class="grid md:grid-cols-2 gap-10 items-start">
+                    <div
+                        class="space-y-4 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
+                    >
+                        <p>Technical writing does not exist in isolation.</p>
+                        <p>
+                            Documentation, tooling, and process overlap and
+                            influence each other. I use this diagram to show how
+                            these areas connect.
+                        </p>
+                        <p>
+                            This portfolio explores those connections across
+                            projects and experiments, rather than presenting
+                            isolated writing samples. Each section focuses on a
+                            different part of that concept.
+                        </p>
+                    </div>
+
+                    {/* Venn diagram */}
+                    <figure class="flex flex-col items-center gap-3">
+                        <img
+                            src="/Audience Engagement Venn Diagram smaller.png"
+                            alt="Venn diagram showing the overlap between Confluence documentation, GitHub code and automation, Jira project management, and REST API integrations — with the portfolio at the intersection"
+                            class="w-full max-w-sm h-auto rounded-xl border border-[#D0D7F2] dark:border-[#434448] shadow-sm"
+                        />
+                    </figure>
+                </div>
+            </section>
+
+            {/* ── 2. Projects ───────────────────────────────────── */}
+            <section id="projects" aria-labelledby="projects-heading">
+                <SectionHeader title="Projects" id="projects-heading" />
+
+                {/* Featured project */}
+                <div class="mb-8">
+                    <a
+                        href="/projects/agentic-assistant"
+                        id="featured-project-link"
+                        class="group block border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-6 hover:border-[#4464AD] dark:hover:border-[#A3B8EE] hover:shadow-md transition-all duration-200 bg-white/50 dark:bg-[#162444]/30"
+                    >
+                        <div
+                            class="flex items-start justify-between gap-4 mb-3"
+                        >
+                            <div>
+                                <span
+                                    class="text-xs font-semibold uppercase tracking-widest text-[#4464AD] dark:text-[#A3B8EE] mb-2 block"
+                                >
+                                    Featured project
+                                </span>
+                                <h3
+                                    class="text-xl font-semibold text-[#111112] dark:text-[#EDECF8] group-hover:text-[#4464AD] dark:group-hover:text-[#A3B8EE] transition-colors duration-200"
+                                >
+                                    Agentic Assistant (work in progress)
+                                </h3>
+                            </div>
+                            <svg
+                                class="shrink-0 mt-1 text-[#D0D7F2] dark:text-[#434448] group-hover:text-[#4464AD] dark:group-hover:text-[#A3B8EE] transition-colors duration-200"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                        <p
+                            class="text-[0.9375rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
+                        >
+                            An AI-powered assistant for everyday tasks,
+                            documented with both users and developers in mind.
+                            This project consists of a user manual created in
+                            Confluence and developer documentation written in
+                            Markdown (docs-as-code). The docs-as-code content is
+                            rendered into an accessible static site, so it can
+                            be used without working directly in the repository.
+                      </br>
+                      </br>
+                            Planned completion date: end of June 2026.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            {
+                                [
+                                    "Developer documentation",
+                                    "User documentation",
+                                    "Confluence",
+                                    "Docs-as-code",
+                                ].map((tag) => (
+                                    <span class="text-xs px-2.5 py-1 rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20 text-[#4464AD] dark:text-[#A3B8EE] font-medium">
+                                        {tag}
+                                    </span>
+                                ))
+                            }
+                        </div>
+                    </a>
+                </div>
+
+                {/* Supporting projects grid */}
+                <div class="grid sm:grid-cols-2 gap-5">
+                    <a
+                        href="https://ewa6.github.io/quoteable-service/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        id="api-docs-link"
+                        class="group block border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 hover:border-[#4498AD] dark:hover:border-[#58C1DB] hover:shadow-md transition-all duration-200 bg-white/50 dark:bg-[#041317]/30"
+                    >
+                        <div class="flex items-center justify-between mb-2">
+                            <h3
+                                class="text-base font-semibold text-[#111112] dark:text-[#EDECF8] group-hover:text-[#4498AD] dark:group-hover:text-[#58C1DB] transition-colors duration-200"
+                            >
+                                API Documentation
+                            </h3>
+                            <svg
+                                class="shrink-0 text-[#D0D7F2] dark:text-[#434448] group-hover:text-[#4498AD] dark:group-hover:text-[#58C1DB] transition-colors duration-200"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                        <p
+                            class="text-[0.875rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
+                        >
+                            REST API documentation created as the final project
+                            for the University of Washington API documentation
+                            course.
+                        </p>
+                    </a>
+
+                    <div
+                        id="mobile-docs-card"
+                        class="block border border-dashed border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 opacity-60 cursor-not-allowed select-none"
+                        aria-label="Mobile documentation — coming soon"
+                    >
+                        <div class="flex items-center justify-between mb-2">
+                            <h3
+                                class="text-base font-semibold text-[#111112] dark:text-[#EDECF8]"
+                            >
+                                Mobile App Documentation
+                            </h3>
+                            <span
+                                class="text-[0.7rem] font-semibold uppercase tracking-wider text-[#898A90] dark:text-[#65666C] bg-[#D7D7D9]/50 dark:bg-[#434448]/30 px-2 py-0.5 rounded-full"
+                            >
+                                Coming soon
+                            </span>
+                        </div>
+                        <p
+                            class="text-[0.875rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
+                        >
+                            Documentation for a mobile application that adapts
+                            my technical writing approach to a different product
+                            type.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── 3. Process ────────────────────────────────────── */}
+            <section id="process" aria-labelledby="process-heading">
+                <SectionHeader title="Process" id="process-heading" />
+
+                <div
+                    class="space-y-4 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] mb-8"
+                >
+                    <p>
+                        The live Jira project is available on request. If you'd
+                        like view-only access, <a
+                            href="#contact-heading"
+                            class="text-[#4498AD] dark:text-[#58C1DB] underline underline-offset-2 hover:text-[#3b8599] dark:hover:text-[#7FD8EC] transition-colors duration-200"
+                            >contact me</a
+                        > and I'll grant you access.
+                    </p>
+                    <p>
+                        What started as an overwhelming set of ideas became a
+                        structured workflow. I broke it down into epics,
+                        sprints, and tasks. Jira is integrated with GitHub, so
+                        tickets connect directly to commits and deployments.
+                    </p>
+                    <p>
+                        I also use Confluence to document the process itself.
+                        Together, these tools show not just the outputs, but how
+                        I plan, organize, and deliver the work.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a
+                        href="https://ewa-doc-lab.atlassian.net/wiki/x/dAC1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        id="jira-board-link"
+                        aria-label="View Confluence process documentation"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#4498AD] dark:bg-[#4498AD] text-white text-sm font-medium hover:bg-[#3b8599] dark:hover:bg-[#58C1DB] hover:text-white dark:hover:text-[#111112] transition-all duration-200"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <rect x="3" y="3" width="18" height="18" rx="2"
+                            ></rect>
+                            <path d="M9 9h6M9 12h6M9 15h4"></path>
+                        </svg>
+                        View Confluence process documentation
+                    </a>
+                    <a
+                        href="#"
+                        id="confluence-docs-link"
+                        aria-label="View Confluence docs — placeholder"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-[#4498AD] dark:border-[#58C1DB] text-[#4498AD] dark:text-[#58C1DB] text-sm font-medium hover:bg-[#4498AD]/10 dark:hover:bg-[#58C1DB]/10 transition-all duration-200"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                            ></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        View Jira dashboard preview (coming soon)
+                    </a>
+                </div>
+            </section>
+
+            {/* ── 4. Writing ────────────────────────────────────── */}
+            <section id="blog" aria-labelledby="writing-heading">
+                <SectionHeader title="Blog" id="writing-heading" />
+
+                <div
+                    class="space-y-4 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] mb-6"
+                >
+                    <p>
+                        Posts from my earlier technical writing blog, revisited
+                        and updated to reflect how I approach the field today.
+                    </p>
+                    <p>
+                        This section remains a space for exploring ideas,
+                        approaches, and questions around technical writing.
+                    </p>
+                </div>
+
+                {/* Blog navigation */}
+                <div class="mb-5">
+                    <a
+                        href="/blog"
+                        class="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-[#5944AD] dark:text-[#A096D9] hover:text-[#432f8f] dark:hover:text-[#C5B3F1] transition-colors duration-200 group"
+                    >
+                        View all posts
+                        <svg
+                            class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                {/* Post preview card */}
+                <a
+                    href="/blog/technical-writing-might-frustrate-you"
+                    id="featured-post-link"
+                    class="group block border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 hover:border-[#5944AD] dark:hover:border-[#7B6CC7] hover:shadow-md transition-all duration-200 bg-white/50 dark:bg-[#191138]/30 mb-4"
+                >
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="flex-1 min-w-0">
+                            <span
+                                class="text-xs font-semibold uppercase tracking-widest text-[#5944AD] dark:text-[#A096D9] mb-2 block"
+                            >
+                                Latest post
+                            </span>
+                            <h3
+                                class="text-base font-semibold text-[#111112] dark:text-[#EDECF8] group-hover:text-[#5944AD] dark:group-hover:text-[#A096D9] transition-colors duration-200 mb-1.5"
+                            >
+                                If You Love Writing, Technical Writing Might
+                                Frustrate You
+                            </h3>
+                            <p
+                                class="text-[0.875rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] opacity-80 line-clamp-2"
+                            >
+                                Good writing habits can work against you in
+                                technical writing. Here's why clarity, not
+                                style, makes the difference.
+                            </p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                {
+                                    [
+                                        "Technical writing",
+                                        "Writing skills",
+                                        "Career switch",
+                                    ].map((tag) => (
+                                        <span class="text-xs px-2.5 py-1 rounded-full bg-[#EDECF8]/60 dark:bg-[#5944AD]/20 text-[#5944AD] dark:text-[#A096D9] font-medium">
+                                            {tag}
+                                        </span>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                        <svg
+                            class="shrink-0 mt-1 text-[#D0D7F2] dark:text-[#434448] group-hover:text-[#5944AD] dark:group-hover:text-[#7B6CC7] transition-colors duration-200"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
+            </section>
+
+            {/* ── 5. Contact ────────────────────────────────────── */}
+            <section id="contact" aria-labelledby="contact-heading">
+                <SectionHeader title="Contact" id="contact-heading" />
+                <p
+                    class="text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] mb-6"
+                >
+                    If you'd like to connect, discuss ideas, or ask about the
+                    project:
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a
+                        href="https://www.linkedin.com/in/ejablonska"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        id="contact-linkedin"
+                        class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-[#4464AD] dark:border-[#4464AD] text-[#4464AD] dark:text-[#A3B8EE] text-sm font-medium hover:bg-[#4464AD]/10 dark:hover:bg-[#4464AD]/15 transition-all duration-200"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                            ></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a
+                        href="mailto:ewa.k.jablonska@gmail.com"
+                        id="contact-email"
+                        class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-[#4464AD] dark:border-[#4464AD] text-[#4464AD] dark:text-[#A3B8EE] text-sm font-medium hover:bg-[#4464AD]/10 dark:hover:bg-[#4464AD]/15 transition-all duration-200"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <rect x="2" y="4" width="20" height="16" rx="2"
+                            ></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                            ></path>
+                        </svg>
+                        Email
+                    </a>
+                    <a
+                        href="#"
+                        id="contact-slack"
+                        aria-label="Slack — placeholder link"
+                        class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-[#D0D7F2] dark:border-[#434448] text-[#434448] dark:text-[#D0D7F2] text-sm font-medium hover:border-[#4464AD] dark:hover:border-[#A3B8EE] hover:text-[#4464AD] dark:hover:text-[#A3B8EE] transition-all duration-200 opacity-60 cursor-not-allowed"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"
+                            ></path>
+                            <path
+                                d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
+                            ></path>
+                            <path
+                                d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"
+                            ></path>
+                            <path
+                                d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"
+                            ></path>
+                            <path
+                                d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"
+                            ></path>
+                            <path
+                                d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"
+                            ></path>
+                            <path
+                                d="M10 9.5C10 8.67 9.33 8 8.5 8H3.5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"
+                            ></path>
+                            <path
+                                d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"
+                            ></path>
+                        </svg>
+                        Slack
+                        <span
+                            class="text-[0.65rem] font-semibold uppercase tracking-wider text-[#898A90] dark:text-[#65666C] bg-[#D7D7D9]/50 dark:bg-[#434448]/30 px-1.5 py-0.5 rounded-full ml-0.5"
+                            >soon</span
+                        >
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        {/* ── Footer ─────────────────────────────────────────── */}
+        <footer
+            class="mt-24 md:mt-32 pt-8 border-t border-[#D0D7F2] dark:border-[#434448] text-sm flex flex-col md:flex-row justify-between items-center gap-4 text-[#434448] dark:text-[#D0D7F2] opacity-80"
         >
-      </div>
-    </footer>
-  </main>
+            <p>&copy; {new Date().getFullYear()} Ewa Jabłońska</p>
+            <div class="flex items-center gap-6">
+                <span class="opacity-70">Built with Astro</span>
+                <a
+                    href="https://github.com/Ewa6/portfolio-landing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors"
+                >
+                    View repo
+                </a>
+            </div>
+        </footer>
+    </main>
 </Layout>
