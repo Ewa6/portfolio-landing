@@ -386,34 +386,11 @@ import SectionHeader from "../components/SectionHeader.astro";
                     </p>
                 </div>
 
-                {/* Blog navigation */}
-                <div class="mb-5">
-                    <a
-                        href="/blog"
-                        class="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-[#5944AD] dark:text-[#A096D9] hover:text-[#432f8f] dark:hover:text-[#C5B3F1] transition-colors duration-200 group"
-                    >
-                        View all posts
-                        <svg
-                            class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            aria-hidden="true"
-                        >
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-
                 {/* Post preview card */}
                 <a
-                    href="/blog/technical-writing-might-frustrate-you"
+                    href="/blog/excel-in-daily-work"
                     id="featured-post-link"
-                    class="group block border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 hover:border-[#5944AD] dark:hover:border-[#7B6CC7] hover:shadow-md transition-all duration-200 bg-white/50 dark:bg-[#191138]/30 mb-4"
+                    class="group block border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 hover:border-[#5944AD] dark:hover:border-[#7B6CC7] hover:shadow-md transition-all duration-200 bg-white/50 dark:bg-[#191138]/30"
                 >
                     <div class="flex items-start justify-between gap-4">
                         <div class="flex-1 min-w-0">
@@ -425,22 +402,22 @@ import SectionHeader from "../components/SectionHeader.astro";
                             <h3
                                 class="text-base font-semibold text-[#111112] dark:text-[#EDECF8] group-hover:text-[#5944AD] dark:group-hover:text-[#A096D9] transition-colors duration-200 mb-1.5"
                             >
-                                If You Love Writing, Technical Writing Might
-                                Frustrate You
+                                How technical writers can use Excel in their
+                                daily work
                             </h3>
                             <p
                                 class="text-[0.875rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] opacity-80 line-clamp-2"
                             >
-                                Good writing habits can work against you in
-                                technical writing. Here's why clarity, not
-                                style, makes the difference.
+                                A practical guide to time tracking, task
+                                tracking, documentation checks, and small
+                                automations.
                             </p>
                             <div class="mt-3 flex flex-wrap gap-2">
                                 {
                                     [
+                                        "Tools",
+                                        "Excel",
                                         "Technical writing",
-                                        "Writing skills",
-                                        "Career switch",
                                     ].map((tag) => (
                                         <span class="text-xs px-2.5 py-1 rounded-full bg-[#EDECF8]/60 dark:bg-[#5944AD]/20 text-[#5944AD] dark:text-[#A096D9] font-medium">
                                             {tag}
@@ -466,6 +443,29 @@ import SectionHeader from "../components/SectionHeader.astro";
                         </svg>
                     </div>
                 </a>
+
+                {/* Blog navigation */}
+                <div class="mt-5">
+                    <a
+                        href="/blog"
+                        class="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-[#5944AD] dark:text-[#A096D9] hover:text-[#432f8f] dark:hover:text-[#C5B3F1] transition-colors duration-200 group"
+                    >
+                        View all posts
+                        <svg
+                            class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
             </section>
 
             {/* ── 5. Contact ────────────────────────────────────── */}

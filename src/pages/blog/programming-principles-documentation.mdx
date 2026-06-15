@@ -1,0 +1,135 @@
+---
+layout: '../../layouts/ArticleLayout.astro'
+title: "3 programming principles you can apply to improve your documentation"
+date: "2026-06-08"
+description: "Programming principles for technical writing"
+tags: ["Documentation", "Process", "Technical writing"]
+editorNote: "This article comes from my old blog and is republished here as part of my technical writing portfolio."
+nextPostUrl: "/blog/excel-in-daily-work"
+nextPostLabel: "How technical writers can use Excel in their daily work"
+---
+
+import ArticleBox from "../../components/ArticleBox.astro";
+import Divider from "../../components/Divider.astro";
+
+Developers have plenty of rules and principles that help them make code efficient, maintainable, and easy to understand. What about technical writers? Of course, we can follow style guides, but they mainly focus on language, terminology, and presentation. They do not solve every problem related to structure, reuse, and maintenance.
+
+So why don't we borrow a few ideas from programming? Here are three popular principles - KISS, DRY, and the Single Responsibility Principle - and some practical ways to apply them to technical documentation.
+
+<ArticleBox tone="purple">
+  <p><strong>In this article</strong></p>
+  <ol>
+    <li><a href="#1-simplify-your-documentation-with-the-kiss-principle">Simplify your documentation with the KISS principle</a></li>
+    <li><a href="#2-reduce-maintenance-effort-with-the-dry-principle">Reduce maintenance effort with the DRY principle</a></li>
+    <li><a href="#3-create-focused-content-with-the-single-responsibility-principle">Create focused content with the Single Responsibility Principle</a></li>
+  </ol>
+</ArticleBox>
+
+## 1. Simplify your documentation with the KISS principle
+
+KISS is commonly expanded as "Keep it simple, stupid." I prefer to treat it as a reminder to keep things simple: avoid complexity that doesn't help the user. Simplicity isn't about removing information users need. It's about presenting that information in the clearest possible way.
+
+<ArticleBox tone="blue">
+  <p><strong>In one sentence:</strong> Make the easiest path through your documentation the most obvious one.</p>
+</ArticleBox>
+
+### Navigation and table of contents
+
+Keep your navigation or table of contents clean and straightforward. Here are a few ways to do so:
+
+- Remove unnecessary entries. For example, instead of listing every small example as a separate top-level item, group related examples under one clear parent topic.
+- Avoid too many nesting levels. Deep hierarchies are harder to scan and can produce long, less readable URLs. Aim for a logical structure rather than adding another level every time you add content.
+- Use actionable, specific titles. Avoid entries that are so generic that users can't predict what they will find after selecting them.
+- Test the published navigation regularly. Check it on the live site, not only in the authoring tool. If unnecessary scroll bars, unclear highlights, or awkward interactions make it harder to use, share concrete suggestions with your design or UX team.
+
+### Topic structure
+
+For task-based content, structure each topic around the most common user journey. A user who wants to complete an action should be able to move through the instructions from prerequisites to result, step by step. If the user has to jump from the beginning to the end and then return to the middle, the procedure is probably more complicated than it needs to be.
+
+Use headings, short paragraphs, and lists to make the content easy to scan. Readers rarely study documentation from top to bottom; they look for the piece that helps them continue their task.
+
+### Vocabulary
+
+Don't overuse complicated vocabulary. If you can say something in simple words, do so. Remember that your documentation may be read by people whose first language isn't English.
+
+Technical documentation is naturally technical, so you can't - and shouldn't - remove every specialist term. However, avoid unnecessary jargon, use terminology consistently, and define a term when your audience may not know it.
+
+### Examples and use cases
+
+Choose examples carefully. They should be realistic, representative, and connected to situations your users may actually encounter. To write useful examples, understand the product well and spend time using the software you document whenever possible.
+
+Focus on essential features and common paths, but also anticipate frequent mistakes and show users how to avoid or fix them. This way, your documentation does more than explain how the product works - it becomes one of the first places users look when something goes wrong.
+
+## 2. Reduce maintenance effort with the DRY principle
+
+DRY stands for "Don't Repeat Yourself." It is often simplified to "do not copy and paste code" but the original idea is broader: each piece of knowledge should have one clear, authoritative representation.
+
+This is highly relevant to technical writing. When the same instruction, value, warning, or product fact is maintained independently in several places, every change creates extra work and a risk that one version will become outdated.
+
+<ArticleBox tone="purple">
+  <p><strong>In one sentence:</strong> Maintain changeable information in one authoritative place, then reuse or reference it.</p>
+</ArticleBox>
+
+### Reusable templates, snippets, and building blocks
+
+When content is likely to be reused, create a reusable component instead of copying it into every topic. The right mechanism depends on your tool and the type of content:
+
+- In MadCap Flare, use snippets for reusable blocks of content. When you edit the source snippet, the change is reflected wherever the snippet is used. Additionally, use variables for short, frequently changing values such as product names, company names, version numbers, or dates.
+- In Microsoft Word, you can save reusable text and graphics as Quick Parts or AutoText building blocks and insert them when needed.
+- In Confluence, use macros like excerpt and excerpt include.
+
+Templates are useful for recurring document structures, while snippets, variables, and building blocks help you reuse the content inside those structures. Keeping these purposes separate makes the system easier to maintain.
+
+### Centralize authoritative information
+
+When you identify recurring information, give it a clear home. Depending on the content, this could be a glossary, an FAQ, a troubleshooting guide, a reference page, or a centrally managed content component.
+
+Establish the primary source, document the information once, and link to or reuse it elsewhere. You may need to reorganize part of the documentation first, but later you will update one place instead of hunting for every copy.
+
+The same rule can apply to assets such as images and diagrams. Store and manage them centrally when your content system supports it, so that you can update the source asset without creating a collection of slightly different versions.
+
+### Prepare for global changes
+
+Think ahead about information that may change across the entire documentation set, such as a product name, logo, company name, URL, or version number. Many documentation tools let you manage these values centrally.
+
+For example, MadCap Flare variables can store short values such as product and company names. When a value changes, you update the variable instead of running Find and Replace across multiple files and hoping that you catch every occurrence.
+
+### Do not over-apply DRY
+
+DRY does not mean that every repeated sentence must become a reusable component. A small amount of intentional repetition can help users complete a task without leaving the page. Reuse content when it reduces maintenance risk and repeat it when the local context is more valuable than the abstraction. The goal is not zero duplication. The goal is controlled, maintainable information.
+
+## 3. Create focused content with the Single Responsibility Principle
+
+The Single Responsibility Principle (SRP) is commonly described as the idea that a software module should have one reason to change. In documentation, the analogy is not exact, but it is still useful: each topic, section, or component should have one clear primary purpose and serve a well-defined user need.
+
+<ArticleBox tone="aqua">
+  <p><strong>In one sentence:</strong> Give each piece of documentation one clear job.</p>
+</ArticleBox>
+
+### Give each topic one primary purpose
+
+Make sure that each topic or section focuses on a specific subject or user goal. Remove content that distracts from that purpose, or move it to a more suitable location.
+
+Avoid combining several loosely connected topics in one long page. Instead, create focused topics and connect them with clear cross-references. Users can then choose the depth and direction they need without scrolling through unrelated material.
+
+### Separate different types of content
+
+Different documentation types answer different user needs. A tutorial teaches, a how-to guide helps users complete a task, reference content provides facts, and explanation helps users understand why something works the way it does.
+
+Do not force all these purposes into one topic. A procedure may need a short explanation or warning, of course, but a long conceptual discussion can interrupt the task. Keep essential context close to the instruction and link to deeper explanation when needed.
+
+### Use visual patterns consistently
+
+You can make information types visually distinct by using consistent components such as notes, examples, warnings, tables, or framed sections. This helps users recognize the purpose of a piece of content at a glance.
+
+For example, use one pattern for practical examples and another for warnings about actions that can cause data loss, failed configuration, or other serious consequences - sometimes we simply have to document situations like this.
+
+Define these patterns before you create a large documentation set, and use them consistently. Do not rely on background color alone: include a clear label or icon so that the meaning remains available to users who can't distinguish the colors or who access the content with assistive technology.
+
+<Divider />
+
+## The principles are guidelines, not commandments
+
+KISS, DRY, and SRP can help you make documentation clearer, easier to navigate, and less expensive to maintain. However, none of them should be applied mechanically. Documentation exists to help users, so user needs should always win when a principle and the real-world context point in different directions.
+
+Still, these principles give us a useful way to ask better questions: Is this structure simpler than it needs to be? Are we maintaining the same information in several places? Does this topic have one clear purpose? Those questions can reveal documentation problems long before users report them.
