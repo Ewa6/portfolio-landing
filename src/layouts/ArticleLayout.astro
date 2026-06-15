@@ -9,6 +9,20 @@ const { frontmatter, headings } = Astro.props;
   <main class="max-w-3xl mx-auto px-6 py-20 md:py-32">
     <article>
       <header class="mb-12">
+        <nav class="mb-10 flex flex-wrap gap-x-6 gap-y-3" aria-label="Article navigation">
+          <a href="/blog" class="inline-flex items-center gap-2 text-sm font-medium text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Back to blog
+          </a>
+          <a href="/portfolio" class="inline-flex items-center gap-2 text-sm font-medium text-[#5944AD] dark:text-[#A096D9] hover:text-[#4464AD] dark:hover:text-[#C5B3F1] transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Back to portfolio
+          </a>
+        </nav>
         {/* <a href="/" class="text-[#4464AD] dark:text-[#A3B8EE] hover:underline mb-8 inline-block text-[0.95rem] font-medium transition-colors hover:text-[#4498AD] dark:hover:text-[#6BC1D6]">
           ← Back to Portfolio
         </a> */}
@@ -54,6 +68,23 @@ const { frontmatter, headings } = Astro.props;
       <div class="article-content mt-12 md:mt-16">
         <slot />
       </div>
+
+      <nav class="mt-16 border-t border-[#D0D7F2] dark:border-[#434448] pt-8 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between" aria-label="Article footer navigation">
+        <a href="/blog" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-[#4464AD] dark:border-[#A3B8EE] text-[#4464AD] dark:text-[#A3B8EE] text-sm font-medium hover:bg-[#4464AD]/10 dark:hover:bg-[#4464AD]/15 transition-all duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Back to blog navigation
+        </a>
+        {frontmatter.nextPostUrl && (
+          <a href={frontmatter.nextPostUrl} aria-label={`Next post: ${frontmatter.nextPostLabel ?? "Read another post"}`} class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-[#5944AD] dark:border-[#A096D9] text-[#5944AD] dark:text-[#A096D9] text-sm font-medium hover:bg-[#5944AD]/10 dark:hover:bg-[#5944AD]/15 transition-all duration-200">
+            Next post
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        )}
+      </nav>
     </article>
   </main>
 </Layout>

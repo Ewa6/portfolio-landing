@@ -1,0 +1,136 @@
+---
+layout: '../../layouts/ArticleLayout.astro'
+title: "How technical writers can use Excel in their daily work"
+date: "2026-06-15"
+description: "A practical guide to time tracking, task tracking, documentation checks, and small automations"
+tags: ["Tools", "Excel", "Technical writing"]
+nextPostUrl: "/blog/technical-writing-might-frustrate-you"
+nextPostLabel: "If You Love Writing, Technical Writing Might Frustrate You"
+---
+
+import ArticleBox from "../../components/ArticleBox.astro";
+import Divider from "../../components/Divider.astro";
+
+I’m an Excel maniac. Give me a repetitive process, a messy list, or three slightly incompatible sources of truth, and my first instinct is usually: I could put this in Excel.
+
+This raises a fair question: what does a technical writer need a spreadsheet for? Surely, I’m not writing articles and manuals in Excel.
+
+The word “writer” still brings to mind a dreamy person pondering every word. In reality, technical writing also involves planning, checking, coordinating, tracking, transforming information, and occasionally persuading several systems to agree with one another.
+
+In this article, I’ll show you a few simple ways in which Excel can speed up that part of the job.
+
+<ArticleBox tone="purple">
+  <p><strong>In this article</strong></p>
+  <ol>
+    <li><a href="#time-tracking">Time tracking</a></li>
+    <li><a href="#task-tracking">Task tracking</a></li>
+    <li><a href="#quick-checks">Quick checks</a></li>
+    <li><a href="#a-helper-for-your-project-tracking-tool">A helper for your project tracking tool</a></li>
+  </ol>
+</ArticleBox>
+
+<ArticleBox tone="aqua">
+  <p><strong>Before you build another spreadsheet…</strong></p>
+  <p>Excel should support your organisation’s official systems, not quietly replace them. Before you copy information from Jira, SAP, or another internal tool, check your company’s security and record-keeping rules. Avoid storing confidential details in unmanaged files, and keep the official system as the source of truth.</p>
+</ArticleBox>
+
+## Time tracking
+
+Many organisations require employees to track their working time. There are plenty of tools designed for this purpose. I’ve worked with four different ones and, to put it diplomatically, not all of them were designed to bring joy.
+
+That is why, since my second job, back when I worked in digital marketing, I’ve often tracked my time in Excel first and then copied the entries to the official tool, usually once a week.
+
+### Doesn’t that create more work?
+
+Maybe yes, maybe no. It depends on how you set it up. I can honestly say, however, that I’ve rarely been the person complaining about time tracking.
+
+So, assuming the official process allows it, how can a spreadsheet save time?
+
+- Open the official tool less often. Instead of signing in every day, navigating to the correct project or transaction, and finding the right date, you can prepare your entries in Excel and transfer them in one session. Naturally, you still need to submit them by the required deadline.
+- Match the structure of the target tool. I prepare the worksheet so that its columns reflect the fields in the official system. If the tool supports pasting rows, I can transfer a complete entry instead of clicking through the date, task, category, and time fields one by one.
+- Let Excel calculate the totals. Some time-tracking tools show the daily total only after you save an entry, which makes bulk entry surprisingly easy to get wrong. In Excel, all totals can update immediately. This is particularly useful when your working hours are flexible.
+- Use conditional formatting as an early warning system. You can highlight days that fall below or above the expected number of hours, missing categories, or entries that have not yet been submitted.
+- Standardise repetitive input. A simple drop-down list created with Data Validation can reduce typing and prevent inconsistent project names, activity categories, or task labels.
+
+None of this is advanced automation. That is precisely the point. A few drop-down lists, formulas, and formatting rules can turn a plain worksheet into a time-tracking tool designed around the way you actually work.
+
+<ArticleBox tone="neutral">
+  <p><strong>A small but important caveat</strong></p>
+  <p>Bulk entry is helpful only when the official system supports it and your organisation allows you to keep a temporary working copy. If the tool requires daily submission, provides automatic timers, or contains sensitive project data, follow the official process instead.</p>
+</ArticleBox>
+
+## Task tracking
+
+Being a technical writer often means that you:
+
+- Work with multiple teams.
+- Document multiple products.
+- Switch focus areas frequently.
+- Or do all of the above at the same time.
+
+It can become difficult to see the shape of your workload when the backlog is full. Especially when half of the tasks or subtasks assigned to you are called “Prepare documentation”.
+
+For several years, I kept a separate task worksheet as my personal working view. It did not replace the issue tracker but it made the information in it usable for me.
+
+### What can a personal task worksheet give you?
+
+- Clearer task names. You can write a title that tells you immediately what you actually need to do, even when the Jira issue does not.
+- Working notes. You can record reminders such as “Update version X after release” or “Confirm the screenshot with the mobile team”. Keep these notes appropriate for the file’s storage location and do not copy sensitive details unnecessarily.
+- Direct links to the documentation. I like having a column with the page, file, or repository path. This saves me from repeatedly searching for the same draft.
+- Small automations. In another column, a formula can combine the task data into a ready-to-send review request, status update, or handover message.
+- Statuses that reflect documentation work. A general “In review” status may be enough for the development workflow, but I may need to distinguish between technical review, editorial review, updates required, approval received, and ready to publish.
+- Fast filtering. Once the range is formatted as an Excel Table, you can quickly filter by team, product, reviewer, release, status, or deadline, without building a complicated query every time you need a slightly different view.
+
+The main risk is duplication. The more data you copy, the more data can become outdated. I therefore keep only the fields that genuinely help me work and treat Jira (or whichever system the team uses) as the official record.
+
+## Quick checks
+
+Sometimes you need to check many pages, files, versions, or documentation variants. When the task is too large to keep in your head, a simple Excel checklist can make the work much safer.
+
+A review matrix might include columns such as:
+
+- Item or page name.
+- Link or file path.
+- Product or documentation version.
+- Check status.
+- Issue found.
+- Owner or reviewer.
+- Follow-up required.
+
+Conditional formatting can then highlight unchecked items, blocked reviews, missing links, or rows that still require follow-up. This works particularly well for:
+
+- Release documentation checks.
+- Content migrations.
+- Terminology sweeps.
+- Screenshot updates.
+- Broken-link reviews.
+- Checks across multiple product versions or languages.
+
+The spreadsheet is not the deliverable. It is the safety net that helps you prove you checked everything you intended to check.
+
+## A helper for repetitive tasks
+
+Excel can also act as a small preparation layer for Jira, Azure DevOps, or another project tracking tool. I do not mean a real plug-in but just a worksheet that prepares repetitive text in the exact format you need.
+
+For example, you can store the variable parts of a review request in separate columns and use a formula to generate a complete message. In current versions of Excel, CONCAT and TEXTJOIN are better choices than the older CONCATENATE function. TEXTJOIN is particularly convenient when you need a separator or line breaks between elements.
+
+<pre className="formula-example"><code>{'=TEXTJOIN(CHAR(10), TRUE,\n  "Documentation: " & A2,\n  "Reviewer: " & B2,\n  "Deadline: " & TEXT(C2, "dd mmm yyyy"))'}</code></pre>
+
+The same approach can generate:
+
+- Review requests.
+- Standard Jira comments.
+- Release-note fragments.
+- Handover summaries.
+- Links with consistent labels.
+- Repetitive status updates.
+
+It is a tiny automation, but tiny automations are often the ones that survive. They are easy to understand, easy to adjust, and useful immediately.
+
+<Divider />
+
+## Excel is glue, not the final destination
+
+Excel is not a documentation authoring tool, an issue tracker, or the official source of project data. It is, however, excellent glue between the systems and activities that surround technical writing.
+
+It can help you organise work, notice gaps, reduce repetitive typing, and create a view that matches your own thinking. You do not need macros, VBA, or an elaborate dashboard to benefit from it. Sometimes a well-designed table, a drop-down list, and one clever formula are enough.

@@ -1,0 +1,24 @@
+---
+interface Props {
+  tone?: "purple" | "blue" | "aqua" | "neutral";
+}
+
+const { tone = "purple" } = Astro.props;
+
+const styles = {
+  purple:
+    "border-[#C5C0E8] bg-[#EDECF8]/60 dark:border-[#5944AD]/50 dark:bg-[#5944AD]/15",
+  blue:
+    "border-[#9DAFE6] bg-[#D0D7F2]/55 dark:border-[#4464AD]/50 dark:bg-[#4464AD]/15",
+  aqua:
+    "border-[#58C1DB] bg-[#A6E4F8]/45 dark:border-[#4498AD]/55 dark:bg-[#4498AD]/15",
+  neutral:
+    "border-[#D7D7D9] bg-[#F5F5F6]/75 dark:border-[#434448] dark:bg-[#252528]/45",
+};
+
+const currentStyle = styles[tone] ?? styles.purple;
+---
+
+<aside class={`article-box my-8 rounded-xl border p-5 ${currentStyle}`}>
+  <slot />
+</aside>

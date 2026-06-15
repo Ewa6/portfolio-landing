@@ -164,6 +164,23 @@
     @apply border-l-4 border-[#D0D7F2] dark:border-[#434448] pl-5 md:pl-6 italic text-[#434448]/80 dark:text-[#D0D7F2]/80 my-8;
   }
 
+  .article-content .article-box {
+    @apply text-[1rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] shadow-sm;
+  }
+
+  .article-content .article-box p {
+    @apply mb-3;
+  }
+
+  .article-content .article-box p:last-child,
+  .article-content .article-box ol:last-child {
+    @apply mb-0;
+  }
+
+  .article-content .article-box ol {
+    @apply pl-5 mb-0 space-y-2;
+  }
+
   .article-content code {
     @apply bg-[#D0D7F2]/40 dark:bg-[#434448]/40 px-1.5 py-0.5 rounded text-[0.85em] font-mono text-[#111112] dark:text-[#EDECF8];
   }
@@ -174,6 +191,14 @@
 
   .article-content pre code {
     @apply bg-transparent p-0 text-inherit;
+  }
+
+  .article-content pre.formula-example {
+    @apply whitespace-pre-wrap break-words border-[#C5C0E8] bg-[#FAFAFC] text-[#111112] dark:border-[#5944AD]/50 dark:bg-[#191138]/45 dark:text-[#EDECF8];
+  }
+
+  .article-content pre.formula-example code {
+    @apply whitespace-pre-wrap break-words;
   }
 
   .article-content img {
