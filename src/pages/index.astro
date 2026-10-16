@@ -4,8 +4,17 @@ import SectionHeader from "../components/SectionHeader.astro";
 
 const projects = [
     {
+        id: "skill-docs-card",
+        title: "Documentation for a skill",
+        status: "In progress",
+        description:
+            "Documentation for an AI skill, written so that both the people who use it and the model that runs it can understand what it does, when to use it, and where its limits are.",
+        tags: ["AI-friendly", "Skills", "Product"],
+        href: undefined,
+    },
+    {
         id: "household-chores-card",
-        title: "Household Chores",
+        title: "Household Chores", // working name, may become Missions 2
         status: "In progress",
         description:
             "Printable chore boards for families, built and documented with AI as a working partner. The documentation covers the product itself and the story around it: what it is for, who it helps, and why they would pick it.",
@@ -21,15 +30,6 @@ const projects = [
         tags: ["API documentation", "Reference", "Tutorial"],
         href: "https://ewa6.github.io/quoteable-service/",
     },
-    {
-        id: "skill-docs-card",
-        title: "Documentation for a skill",
-        status: "Planned",
-        description:
-            "Documentation for an AI skill, written so that both the people who use it and the model that runs it can understand what it does, when to use it, and where its limits are.",
-        tags: ["AI-friendly", "Skills", "Product"],
-        href: undefined,
-    },
 ];
 ---
 
@@ -39,7 +39,7 @@ const projects = [
 
 <Layout
     title="Portfolio — Ewa Jabłońska"
-    description="A technical writing portfolio about documentation that works with AI and helps products succeed: AI-assisted, AI-friendly, and written for real users."
+    description="A connected technical writing portfolio: documentation, process, code, and APIs working as one system."
 >
     <main class="max-w-3xl mx-auto px-6 py-8 md:py-10">
         <div class="space-y-16 md:space-y-20">
@@ -82,12 +82,11 @@ const projects = [
                 <div
                     class="space-y-4 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] max-w-xl mx-auto"
                 >
-                    <p>Documentation is now read by people and by AI.</p>
+                    <p>Technical writing is more than content.</p>
                     <p>
-                        This portfolio shows documentation written with AI,
-                        for AI, and for the people who use the product. It
-                        also shows the part I have always done: helping a
-                        product get adopted, understood, and chosen.
+                        This portfolio explores how documentation, tooling, and
+                        process come together in practice. It reflects that
+                        through projects, experiments, and continuous learning.
                     </p>
                 </div>
             </section>
@@ -100,10 +99,10 @@ const projects = [
                 </div>
                 <div class="portfolio-live-preview__content">
                     <p>
-                        This portfolio is being developed iteratively. The API
-                        documentation is finished and ready to explore, the
-                        Household Chores project is in active development, and
-                        the skill documentation is next.
+                        This portfolio is being developed iteratively. Several
+                        sections, for example the API documentation, are already
+                        available to explore, while the other projects are
+                        still in active development.
                     </p>
                     <p>
                         I’ve published this early version to share both the
@@ -150,17 +149,15 @@ const projects = [
                     >
                         <p>Technical writing does not exist in isolation.</p>
                         <p>
-                            AI now drafts, reviews, and reads documentation.
-                            That makes structure, clear intent, and honest
-                            limits matter more, not less. I write so that a
-                            person and an AI assistant reach the same answer.
+                            Documentation, tooling, and process overlap and
+                            influence each other. I use this diagram to show how
+                            these areas connect.
                         </p>
                         <p>
-                            Good documentation also sells. It helps people
-                            decide to use a product and helps them succeed once
-                            they do. Each project here shows both sides: AI in
-                            the workflow, and documentation as part of the
-                            product.
+                            This portfolio explores those connections across
+                            projects and experiments, rather than presenting
+                            isolated writing samples. Each section focuses on a
+                            different part of that concept.
                         </p>
                     </div>
 
