@@ -1,6 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+
+const projects = [
+    {
+        id: "household-chores-card",
+        title: "Household Chores",
+        status: "In progress",
+        description:
+            "Printable chore boards for families, built and documented with AI as a working partner. The documentation covers the product itself and the story around it: what it is for, who it helps, and why they would pick it.",
+        tags: ["AI-assisted", "User documentation", "Product"],
+        href: undefined,
+    },
+    {
+        id: "api-docs-link",
+        title: "Quoteable Service API",
+        status: "Finished",
+        description:
+            "REST API documentation created as the final project for the University of Washington API documentation course: endpoint structure, tutorials, and reference.",
+        tags: ["API documentation", "Reference", "Tutorial"],
+        href: "https://ewa6.github.io/quoteable-service/",
+    },
+    {
+        id: "skill-docs-card",
+        title: "Documentation for a skill",
+        status: "Planned",
+        description:
+            "Documentation for an AI skill, written so that both the people who use it and the model that runs it can understand what it does, when to use it, and where its limits are.",
+        tags: ["AI-friendly", "Skills", "Product"],
+        href: undefined,
+    },
+];
 ---
 
 <script is:inline>
@@ -9,7 +39,7 @@ import SectionHeader from "../components/SectionHeader.astro";
 
 <Layout
     title="Portfolio — Ewa Jabłońska"
-    description="A connected technical writing portfolio: documentation, process, code, and APIs working as one system."
+    description="A technical writing portfolio about documentation that works with AI and helps products succeed: AI-assisted, AI-friendly, and written for real users."
 >
     <main class="max-w-3xl mx-auto px-6 py-8 md:py-10">
         <div class="space-y-16 md:space-y-20">
@@ -52,11 +82,12 @@ import SectionHeader from "../components/SectionHeader.astro";
                 <div
                     class="space-y-4 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] max-w-xl mx-auto"
                 >
-                    <p>Technical writing is more than content.</p>
+                    <p>Documentation is now read by people and by AI.</p>
                     <p>
-                        This portfolio explores how documentation, tooling, and
-                        process come together in practice. It reflects that
-                        through projects, experiments, and continuous learning.
+                        This portfolio shows documentation written with AI,
+                        for AI, and for the people who use the product. It
+                        also shows the part I have always done: helping a
+                        product get adopted, understood, and chosen.
                     </p>
                 </div>
             </section>
@@ -69,10 +100,10 @@ import SectionHeader from "../components/SectionHeader.astro";
                 </div>
                 <div class="portfolio-live-preview__content">
                     <p>
-                        This portfolio is being developed iteratively. Several
-                        sections, for example the API documentation, are already
-                        available to explore, while the featured Agentic
-                        Assistant project is still in active development.
+                        This portfolio is being developed iteratively. The API
+                        documentation is finished and ready to explore, the
+                        Household Chores project is in active development, and
+                        the skill documentation is next.
                     </p>
                     <p>
                         I’ve published this early version to share both the
@@ -119,15 +150,17 @@ import SectionHeader from "../components/SectionHeader.astro";
                     >
                         <p>Technical writing does not exist in isolation.</p>
                         <p>
-                            Documentation, tooling, and process overlap and
-                            influence each other. I use this diagram to show how
-                            these areas connect.
+                            AI now drafts, reviews, and reads documentation.
+                            That makes structure, clear intent, and honest
+                            limits matter more, not less. I write so that a
+                            person and an AI assistant reach the same answer.
                         </p>
                         <p>
-                            This portfolio explores those connections across
-                            projects and experiments, rather than presenting
-                            isolated writing samples. Each section focuses on a
-                            different part of that concept.
+                            Good documentation also sells. It helps people
+                            decide to use a product and helps them succeed once
+                            they do. Each project here shows both sides: AI in
+                            the workflow, and documentation as part of the
+                            product.
                         </p>
                     </div>
 
@@ -146,141 +179,62 @@ import SectionHeader from "../components/SectionHeader.astro";
             <section id="projects" aria-labelledby="projects-heading">
                 <SectionHeader title="Projects" id="projects-heading" />
 
-                {/* Featured project */}
-                <div class="mb-8">
-                    <a
-                        href="/projects/agentic-assistant"
-                        id="featured-project-link"
-                        class="group block border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-6 hover:border-[#4464AD] dark:hover:border-[#A3B8EE] hover:shadow-md transition-all duration-200 bg-white/50 dark:bg-[#162444]/30"
-                    >
-                        <div
-                            class="flex items-start justify-between gap-4 mb-3"
-                        >
-                            <div>
-                                <span
-                                    class="text-xs font-semibold uppercase tracking-widest text-[#4464AD] dark:text-[#A3B8EE] mb-2 block"
-                                >
-                                    Featured project
-                                </span>
-                                <h3
-                                    class="text-xl font-semibold text-[#111112] dark:text-[#EDECF8] group-hover:text-[#4464AD] dark:group-hover:text-[#A3B8EE] transition-colors duration-200"
-                                >
-                                    Agentic Assistant (work in progress)
-                                </h3>
-                            </div>
-                            <svg
-                                class="shrink-0 mt-1 text-[#D0D7F2] dark:text-[#434448] group-hover:text-[#4464AD] dark:group-hover:text-[#A3B8EE] transition-colors duration-200"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                aria-hidden="true"
-                            >
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </div>
-                        <p
-                            class="text-[0.9375rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
-                        >
-                            An AI-powered assistant for everyday tasks,
-                            documented with both users and developers in mind.
-                            This project consists of a user manual created in
-                            Confluence and developer documentation written in
-                            Markdown (docs-as-code). The docs-as-code content is
-                            rendered into an accessible static site, so it can
-                            be used without working directly in the repository.
-                      </br>
-                      </br>
-                            Planned completion date: end of October 2026.
-                        </p>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            {
-                                [
-                                    "Developer documentation",
-                                    "User documentation",
-                                    "Confluence",
-                                    "Docs-as-code",
-                                ].map((tag) => (
-                                    <span class="text-xs px-2.5 py-1 rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20 text-[#4464AD] dark:text-[#A3B8EE] font-medium">
-                                        {tag}
-                                    </span>
-                                ))
-                            }
-                        </div>
-                    </a>
-                </div>
+                <p
+                    class="mb-8 text-[1.0625rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
+                >
+                    Three projects, three kinds of documentation. Each one is
+                    written for people and for the AI tools that now read
+                    documentation alongside them, and each one shows how
+                    documentation helps a product get used, understood, and
+                    chosen.
+                </p>
 
-                {/* Supporting projects grid */}
-                <div class="grid sm:grid-cols-2 gap-5">
-                    <a
-                        href="https://ewa6.github.io/quoteable-service/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        id="api-docs-link"
-                        class="group block border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 hover:border-[#4498AD] dark:hover:border-[#58C1DB] hover:shadow-md transition-all duration-200 bg-white/50 dark:bg-[#041317]/30"
-                    >
-                        <div class="flex items-center justify-between mb-2">
-                            <h3
-                                class="text-base font-semibold text-[#111112] dark:text-[#EDECF8] group-hover:text-[#4498AD] dark:group-hover:text-[#58C1DB] transition-colors duration-200"
-                            >
-                                API Documentation
-                            </h3>
-                            <svg
-                                class="shrink-0 text-[#D0D7F2] dark:text-[#434448] group-hover:text-[#4498AD] dark:group-hover:text-[#58C1DB] transition-colors duration-200"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                aria-hidden="true"
-                            >
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </div>
-                        <p
-                            class="text-[0.875rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
-                        >
-                            REST API documentation created as the final project
-                            for the University of Washington API documentation
-                            course.
-                        </p>
-                    </a>
-
-                    <div
-                        id="mobile-docs-card"
-                        class="block border border-dashed border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 opacity-60 cursor-not-allowed select-none"
-                        aria-label="Mobile documentation — coming soon"
-                    >
-                        <div class="flex items-center justify-between mb-2">
-                            <h3
-                                class="text-base font-semibold text-[#111112] dark:text-[#EDECF8]"
-                            >
-                                Mobile App Documentation
-                            </h3>
-                            <span
-                                class="text-[0.7rem] font-semibold uppercase tracking-wider text-[#898A90] dark:text-[#65666C] bg-[#D7D7D9]/50 dark:bg-[#434448]/30 px-2 py-0.5 rounded-full"
-                            >
-                                Coming soon
-                            </span>
-                        </div>
-                        <p
-                            class="text-[0.875rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2]"
-                        >
-                            Documentation for a mobile application that adapts
-                            my technical writing approach to a different product
-                            type.
-                        </p>
-                    </div>
-                </div>
+                {/* Three equal project cards, no featured project */}
+                <ul class="grid md:grid-cols-3 gap-5" role="list">
+                    {
+                        projects.map((project) => {
+                            const Tag = project.href ? "a" : "div";
+                            return (
+                                <li class="flex">
+                                    <Tag
+                                        href={project.href}
+                                        target={project.href ? "_blank" : undefined}
+                                        rel={project.href ? "noopener noreferrer" : undefined}
+                                        id={project.id}
+                                        class:list={[
+                                            "group flex flex-col w-full border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 bg-white/50 dark:bg-[#162444]/30 transition-all duration-200",
+                                            project.href &&
+                                                "hover:border-[#4464AD] dark:hover:border-[#A3B8EE] hover:shadow-md",
+                                        ]}
+                                    >
+                                        <span
+                                            class="self-start text-[0.7rem] font-semibold uppercase tracking-wider text-[#4464AD] dark:text-[#A3B8EE] bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20 px-2 py-0.5 rounded-full mb-3"
+                                        >
+                                            {project.status}
+                                        </span>
+                                        <h3
+                                            class="text-lg font-semibold text-[#111112] dark:text-[#EDECF8] group-hover:text-[#4464AD] dark:group-hover:text-[#A3B8EE] transition-colors duration-200 mb-2"
+                                        >
+                                            {project.title}
+                                        </h3>
+                                        <p
+                                            class="text-[0.9375rem] leading-relaxed text-[#434448] dark:text-[#D0D7F2] flex-1"
+                                        >
+                                            {project.description}
+                                        </p>
+                                        <div class="mt-4 flex flex-wrap gap-2">
+                                            {project.tags.map((tag) => (
+                                                <span class="text-xs px-2.5 py-1 rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20 text-[#4464AD] dark:text-[#A3B8EE] font-medium">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </Tag>
+                                </li>
+                            );
+                        })
+                    }
+                </ul>
             </section>
 
             {/* ── 3. Process ────────────────────────────────────── */}
