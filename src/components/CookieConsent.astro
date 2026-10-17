@@ -1,0 +1,150 @@
+---
+// Cookie consent banner for Google Analytics.
+// Analytics stays off until the visitor clicks "Accept". The choice is kept in
+// localStorage and can be changed from any element with [data-cookie-settings].
+// The gtag setup and loader live in Layout.astro's <head>.
+---
+
+<div
+  id="cookie-consent"
+  class="cookie-consent fixed bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm z-[100] rounded-xl border border-[#D0D7F2] dark:border-[#434448] bg-white/95 dark:bg-[#1C1C20]/95 backdrop-blur-md shadow-lg shadow-[#4464AD]/10 p-5 text-sm text-[#434448] dark:text-[#D0D7F2]"
+  role="region"
+  aria-labelledby="cookie-consent-title"
+  hidden
+>
+  <p id="cookie-consent-title" class="font-semibold text-[#2B2C30] dark:text-white mb-1.5">
+    Can I count your visit?
+  </p>
+  <p class="leading-relaxed">
+    With your permission, Google Analytics sets cookies so I can see how many
+    people visit and which pages they read. No ads, no selling data. Nothing is
+    loaded unless you accept.
+  </p>
+
+  <details class="mt-3 group">
+    <summary
+      class="cursor-pointer select-none text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors"
+    >
+      Details
+    </summary>
+    <ul class="mt-2 space-y-1.5 text-xs leading-relaxed opacity-90 list-disc pl-4">
+      <li>
+        <strong>Service:</strong> Google Analytics 4, provided by Google Ireland
+        Ltd. Data may be processed in the US under the EU-US Data Privacy
+        Framework.
+      </li>
+      <li>
+        <strong>Cookies:</strong> <code>_ga</code> and <code>_ga_GQH2FEWXXW</code>,
+        kept for up to 2 years.
+      </li>
+      <li>
+        <strong>Purpose:</strong> visit statistics for this site only.
+      </li>
+      <li>
+        <strong>Your choice:</strong> you can change it any time with
+        "Cookie settings" at the bottom of the page. Rejecting has no effect on
+        how the site works.
+      </li>
+      <li>
+        <strong>Legal basis:</strong> your consent (GDPR Art. 6(1)(a)). Questions?
+        Use the contact details on the
+        <a
+          href="/#contact"
+          class="underline underline-offset-2 hover:text-[#5944AD] dark:hover:text-[#C5B3F1]"
+          >home page</a
+        >.
+      </li>
+    </ul>
+  </details>
+
+  <div class="mt-4 grid grid-cols-2 gap-2">
+    <button type="button" class="cookie-consent__btn" data-cookie-choice="denied">
+      Reject
+    </button>
+    <button type="button" class="cookie-consent__btn" data-cookie-choice="granted">
+      Accept
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const banner = document.getElementById("cookie-consent");
+    if (!banner) return;
+
+    const show = () => {
+      banner.hidden = false;
+      requestAnimationFrame(() => banner.classList.add("is-visible"));
+    };
+    const hide = () => {
+      banner.classList.remove("is-visible");
+      banner.hidden = true;
+    };
+
+    if (!window.cookieConsent?.get()) show();
+
+    banner.querySelectorAll("[data-cookie-choice]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        window.cookieConsent?.set(btn.dataset.cookieChoice);
+        hide();
+      });
+    });
+
+    document.querySelectorAll("[data-cookie-settings]").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        show();
+        banner.querySelector("[data-cookie-choice]")?.focus();
+      });
+    });
+  })();
+</script>
+
+<style is:global>
+  .cookie-consent {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    transition:
+      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cookie-consent.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cookie-consent {
+      transition: none;
+      transform: none;
+    }
+  }
+  .cookie-consent__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #4464ad;
+    color: #4464ad;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .cookie-consent__btn:hover {
+    background-color: rgb(68 100 173 / 0.1);
+  }
+  .cookie-consent__btn:focus-visible {
+    outline: 2px solid #5944ad;
+    outline-offset: 2px;
+  }
+  .dark .cookie-consent__btn {
+    border-color: #a3b8ee;
+    color: #a3b8ee;
+  }
+  .dark .cookie-consent__btn:hover {
+    background-color: rgb(68 100 173 / 0.15);
+  }
+  .cookie-consent code {
+    font-size: 0.95em;
+  }
+</style>
