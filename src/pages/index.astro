@@ -4,6 +4,15 @@ import SectionHeader from "../components/SectionHeader.astro";
 
 const projects = [
     {
+        id: "api-docs-link",
+        title: "Quoteable Service API",
+        status: "Finished",
+        description:
+            "REST API documentation created as the final project for the University of Washington API documentation course: endpoint structure, tutorials, and reference.",
+        tags: ["API documentation", "Reference", "Tutorial"],
+        href: "https://ewa6.github.io/quoteable-service/",
+    },
+    {
         id: "skill-docs-card",
         title: "Promo Video Skill",
         status: "In progress",
@@ -20,15 +29,6 @@ const projects = [
             "Printable chore boards for families, built and documented with AI as a working partner. The documentation covers the product itself and the story around it: what it is for, who it helps, and why they would pick it.",
         tags: ["AI-assisted", "User documentation", "Product"],
         href: undefined,
-    },
-    {
-        id: "api-docs-link",
-        title: "Quoteable Service API",
-        status: "Finished",
-        description:
-            "REST API documentation created as the final project for the University of Washington API documentation course: endpoint structure, tutorials, and reference.",
-        tags: ["API documentation", "Reference", "Tutorial"],
-        href: "https://ewa6.github.io/quoteable-service/",
     },
 ];
 ---
@@ -191,6 +191,8 @@ const projects = [
                     {
                         projects.map((project) => {
                             const Tag = project.href ? "a" : "div";
+                            // Finished projects use the Highlight (teal) palette
+                            const finished = project.status === "Finished";
                             return (
                                 <li class="flex">
                                     <Tag
@@ -199,18 +201,33 @@ const projects = [
                                         rel={project.href ? "noopener noreferrer" : undefined}
                                         id={project.id}
                                         class:list={[
-                                            "group flex flex-col w-full border border-[#D0D7F2] dark:border-[#434448] rounded-xl p-5 bg-white/50 dark:bg-[#162444]/30 transition-all duration-200",
+                                            "group flex flex-col w-full border rounded-xl p-5 transition-all duration-200",
+                                            finished
+                                                ? "border-[#4498AD] dark:border-[#58C1DB] bg-[#A6E4F8]/20 dark:bg-[#0E2B32]/60"
+                                                : "border-[#D0D7F2] dark:border-[#434448] bg-white/50 dark:bg-[#162444]/30",
                                             project.href &&
-                                                "hover:border-[#4464AD] dark:hover:border-[#A3B8EE] hover:shadow-md",
+                                                (finished
+                                                    ? "hover:border-[#317181] dark:hover:border-[#A6E4F8] hover:shadow-md"
+                                                    : "hover:border-[#4464AD] dark:hover:border-[#A3B8EE] hover:shadow-md"),
                                         ]}
                                     >
                                         <span
-                                            class="self-start text-[0.7rem] font-semibold uppercase tracking-wider text-[#4464AD] dark:text-[#A3B8EE] bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20 px-2 py-0.5 rounded-full mb-3"
+                                            class:list={[
+                                                "self-start text-[0.7rem] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full mb-3",
+                                                finished
+                                                    ? "text-[#1F4D58] dark:text-[#A6E4F8] bg-[#A6E4F8]/70 dark:bg-[#4498AD]/30"
+                                                    : "text-[#4464AD] dark:text-[#A3B8EE] bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20",
+                                            ]}
                                         >
                                             {project.status}
                                         </span>
                                         <h3
-                                            class="text-lg font-semibold text-[#111112] dark:text-[#EDECF8] group-hover:text-[#4464AD] dark:group-hover:text-[#A3B8EE] transition-colors duration-200 mb-2"
+                                            class:list={[
+                                                "text-lg font-semibold text-[#111112] dark:text-[#EDECF8] transition-colors duration-200 mb-2",
+                                                finished
+                                                    ? "group-hover:text-[#317181] dark:group-hover:text-[#58C1DB]"
+                                                    : "group-hover:text-[#4464AD] dark:group-hover:text-[#A3B8EE]",
+                                            ]}
                                         >
                                             {project.title}
                                         </h3>
@@ -221,7 +238,14 @@ const projects = [
                                         </p>
                                         <div class="mt-4 flex flex-wrap gap-2">
                                             {project.tags.map((tag) => (
-                                                <span class="text-xs px-2.5 py-1 rounded-full bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20 text-[#4464AD] dark:text-[#A3B8EE] font-medium">
+                                                <span
+                                                    class:list={[
+                                                        "text-xs px-2.5 py-1 rounded-full font-medium",
+                                                        finished
+                                                            ? "bg-[#A6E4F8]/50 dark:bg-[#4498AD]/20 text-[#1F4D58] dark:text-[#A6E4F8]"
+                                                            : "bg-[#D0D7F2]/60 dark:bg-[#4464AD]/20 text-[#4464AD] dark:text-[#A3B8EE]",
+                                                    ]}
+                                                >
                                                     {tag}
                                                 </span>
                                             ))}
