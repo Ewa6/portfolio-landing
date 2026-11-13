@@ -18,6 +18,3 @@ pnpm-debug.log*
 node_modules/
 .astro/
 dist/
-
-# brand files (local only, kept in the main checkout)
-brand/

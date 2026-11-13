@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brand book — Ewa Jabłońska, technical-writing.net</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background);color:var(--color-ink);font:var(--size-body)/var(--line-height-body) var(--font-text)}
+a{color:var(--color-link);text-underline-offset:.2em}
+.shell{max-width:1040px;margin:auto;padding:var(--space-5) var(--space-4)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:var(--space-3);flex-wrap:wrap;border-bottom:1px solid var(--color-line);padding-bottom:var(--space-3)}
+.top img{height:30px;display:block}
+.label{font-size:var(--size-label);letter-spacing:var(--tracking-label);text-transform:uppercase;font-weight:600;color:var(--color-muted);margin:0}
+.badge{display:inline-block;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:2px 10px;border-radius:999px;border:1px solid var(--color-functional-line);color:var(--color-muted)}
+nav{display:flex;flex-wrap:wrap;gap:.5rem 1.3rem;padding-block:var(--space-3);font-size:var(--size-small)}
+.cover{padding:var(--space-6) 0 var(--space-5)}
+.cover img.m{width:120px;height:120px;display:block;margin-bottom:var(--space-4)}
+h1,h2,h3{font-weight:600;line-height:var(--line-height-heading);letter-spacing:var(--tracking-heading)}
+h1{font-size:var(--size-h1);margin:.4rem 0 var(--space-3)}
+h2{font-size:2rem;margin:.3rem 0 var(--space-4)}
+h3{font-size:var(--size-h3);margin:var(--space-4) 0 var(--space-2)}
+p,li{max-width:68ch}
+ul{padding-left:1.2rem}
+.lede{font-size:var(--size-lead);color:var(--color-muted)}
+section{border-top:1px solid var(--color-line);padding:var(--space-5) 0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-3)}
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{min-width:0;background:var(--color-surface);padding:var(--space-4);border:1px solid var(--color-line);border-radius:var(--radius-card);break-inside:avoid}
+.card>:first-child{margin-top:0}.card>:last-child{margin-bottom:0}
+.card h3{margin-top:0}
+.tile{display:flex;align-items:center;justify-content:center;min-height:150px;border-radius:var(--radius-card);border:1px solid var(--color-line);padding:var(--space-3)}
+.tile.d{background:#0B1020}.tile.s{background:#121934}.tile.l{background:#F6F7FB}.tile.w{background:#fff}
+.cap{font-size:var(--size-small);color:var(--color-muted);margin:.4rem 0 0}
+.sw{height:84px;border-radius:var(--radius-card);border:1px solid var(--color-line)}
+.swt{font-size:var(--size-small);margin:.5rem 0 0}.swt b{display:block}.swt span{color:var(--color-muted)}
+table{border-collapse:collapse;width:100%;font-size:var(--size-small);margin:var(--space-3) 0}
+th,td{text-align:left;border-bottom:1px solid var(--color-line);padding:.6rem .5rem;vertical-align:top;overflow-wrap:anywhere}
+td:first-child,th:first-child{overflow-wrap:normal}
+th{font-weight:600;color:var(--color-muted)}
+code{font-family:var(--font-code);font-size:.9em;overflow-wrap:anywhere}
+img{max-width:100%;height:auto}
+.shot{display:block;border:1px solid var(--color-line);border-radius:var(--radius-card);width:100%}
+.note{border-left:var(--arc-width) solid var(--color-functional-line);padding-left:var(--space-3);color:var(--color-muted)}
+.node{display:inline-block;width:var(--node-size);height:var(--node-size);border-radius:50%}
+.n-t{background:var(--color-technology)}.n-p{background:var(--color-product)}.n-u{background:var(--color-users)}
+.pair .node+.node{margin-left:-2px}
+.area{display:inline-flex;align-items:center;gap:8px;font-size:var(--size-label);font-weight:600;letter-spacing:.04em;color:var(--color-muted)}
+.pill{white-space:nowrap;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:2px 10px;border-radius:999px;border:1px solid var(--color-functional-line);color:var(--color-muted)}
+.pill.done{background:var(--color-button);color:var(--color-on-button);border-color:var(--color-button)}
+.pc{position:relative;display:flex;flex-direction:column;gap:10px}
+.pc::before{content:"";position:absolute;left:-1px;top:16px;bottom:16px;width:var(--arc-width);border-radius:3px;background:linear-gradient(var(--a),var(--b))}
+.pc p{font-size:var(--size-small);color:var(--color-muted);margin:0}
+.no{position:relative}.no::after{content:"Do not";position:absolute;left:10px;top:8px;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:#8A2B3C;padding:1px 8px;border-radius:999px}
+.type-h1{font-size:3rem;font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0}
+footer{border-top:1px solid var(--color-line);padding:var(--space-4) 0;font-size:var(--size-small);color:var(--color-muted)}
+@media(max-width:700px){.shell{padding:var(--space-4) var(--space-3)}.grid,.grid.two,.grid.four{grid-template-columns:1fr}.grid.four{grid-template-columns:1fr 1fr}h2{font-size:1.6rem}.type-h1{font-size:2rem}table{display:block;overflow-x:auto}}
+@page{size:A4;margin:14mm}
+.only-light{display:none!important}
+@media print{
+ :root{--color-technology:#4464AD;--color-product:#6A58C4;--color-users:#2F8FA6;--color-background:#FFFFFF;--color-surface:#F6F7FB;--color-ink:#162444;--color-muted:#4A5370;--color-line:#D0D7F2;--color-functional-line:#7A88B8;--color-link:#2C4376;--color-button:#162444;--color-on-button:#FFFFFF}
+ .only-dark{display:none!important}.only-light{display:block!important}
+ body{font-size:10pt;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .shot.tall{max-height:185mm;width:auto}
+ footer{display:none}
+ .shell{padding:0;max-width:none}
+ nav{display:none}
+ section{break-before:page;border-top:0;padding-top:0}
+ h2,h3{break-after:avoid}
+ tr,.tile,figure{break-inside:avoid}
+ .cover{padding-top:30mm}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="top">
+    <img class="only-dark" src="../logo/exports/lockup-on-dark.png" alt="Ewa Jabłońska"><img class="only-light" src="../logo/exports/lockup-on-light.png" alt="Ewa Jabłońska">
+    <span class="badge">Edition v1 · approved 12 November 2026</span>
+  </div>
+  <nav aria-label="Chapters">
+    <a href="#essence">Essence</a><a href="#voice">Voice</a><a href="#logo">Logo</a><a href="#colour">Colour</a><a href="#type">Typography</a><a href="#system">Graphic system</a><a href="#use">In use</a><a href="#files">Files and status</a>
+  </nav>
+
+  <header class="cover">
+    <img class="m only-dark" src="../logo/exports/mark-colour-on-dark.svg" alt="The mark: three arcs with nodes"><img class="m only-light" src="../logo/exports/mark-colour-on-light.svg" alt="The mark: three arcs with nodes">
+    <p class="label">Brand book</p>
+    <h1>Ewa Jabłońska<br>technical-writing.net</h1>
+    <p class="note only-light">The brand is dark first. This PDF uses the light mode so that it prints well. The HTML book shows the dark mode.</p>
+    <p class="lede">The rules for how the portfolio looks and sounds: on the site, on docs sites, on the CV and LinkedIn, and in Confluence.</p>
+    <p class="note">Ewa chose the direction, the logo concept and the type, and approved this edition on 12 November 2026. The files are checked but not yet applied to the live site.</p>
+  </header>
+
+  <section id="essence">
+    <p class="label">1</p>
+    <h2>Essence</h2>
+    <div class="grid two">
+      <div class="card"><h3>Audience</h3><p>A company that hires for AI-assisted documentation. A hiring manager or team lead who reads the page fast.</p></div>
+      <div class="card"><h3>Positioning</h3><p>For teams that build documentation with AI, Ewa Jabłońska is the technical writer who connects technology, product, and users. Docs stay in the centre. She sets the direction for AI work and checks the result.</p></div>
+    </div>
+    <h3>Message pillars</h3>
+    <ul>
+      <li>Docs stay in the centre.</li>
+      <li>Technology, product, and users connect through the writer.</li>
+      <li>The writer directs AI and checks the result.</li>
+      <li>Proof, not claims: each skill links to a project.</li>
+    </ul>
+    <h3>Personality</h3>
+    <table>
+      <tr><th>The brand is</th><th>The brand is not</th></tr>
+      <tr><td>Clear</td><td>Cold</td></tr>
+      <tr><td>Structured</td><td>Bureaucratic</td></tr>
+      <tr><td>Curious about AI</td><td>Hyped</td></tr>
+      <tr><td>Human</td><td>Casual</td></tr>
+      <tr><td>In charge</td><td>Loud</td></tr>
+    </table>
+    <p class="note">The positioning is an internal sentence. It is not site copy. Ewa writes the hero message and the other narrative texts (D19).</p>
+  </section>
+
+  <section id="voice">
+    <p class="label">2</p>
+    <h2>Voice</h2>
+    <p class="lede">Plain, direct, and human. Short sentences. The reader's understanding comes first.</p>
+    <div class="card">
+      <h3>Who writes what (D19, "Mixed")</h3>
+      <table>
+        <tr><th>Text type</th><th>Examples</th><th>Who writes</th><th>AI's role</th></tr>
+        <tr><td>Narrative</td><td>Hero message, Concept, Process, blog intros, blog posts, case studies</td><td>Ewa</td><td>Proofreads only: typos, grammar, clarity. AI does not rewrite and does not add content.</td></tr>
+        <tr><td>Functional</td><td>Navigation, buttons, card descriptions, meta titles and descriptions, alt text, 404 page, cookie banner</td><td>AI drafts</td><td>Drafts in this voice. An independent AI review checks the draft.</td></tr>
+      </table>
+      <p>Ewa approves every text before it goes live. Ewa can ask AI for a draft of a narrative text; the copy deck records the exception.</p>
+      <p>Lists use the Oxford comma: "technology, product, and users" (D20). Page titles: "{page} | Ewa Jabłońska".</p>
+    </div>
+    <table>
+      <tr><th>Trait</th><th>In practice</th><th>Boundary</th></tr>
+      <tr><td>Clear</td><td>One idea per sentence. The same term for the same thing.</td><td>Speak to the reader as "you".</td></tr>
+      <tr><td>Structured</td><td>Headings say what the section does. Steps are in order.</td><td>No filler headings, no formal padding.</td></tr>
+      <tr><td>Curious about AI</td><td>Say what AI did, what Ewa did, and what Ewa checked.</td><td>No "revolution", no "supercharge".</td></tr>
+      <tr><td>Human</td><td>First person. Honest about what is in progress.</td><td>No emoji, no exclamation marks.</td></tr>
+      <tr><td>In charge</td><td>Active voice: Ewa sets, decides, reviews.</td><td>No superlatives about herself.</td></tr>
+    </table>
+    <h3>Examples from Ewa's published texts</h3>
+    <div class="grid two">
+      <div class="card"><p>"Your job is not to impress the reader. Your job is to make sure they understand."</p><p class="cap">Blog: If You Love Writing, Technical Writing Might Frustrate You</p></div>
+      <div class="card"><p>"Technical writing does not exist in isolation."</p><p class="cap">Home page, Concept section</p></div>
+    </div>
+    <h3>Terms</h3>
+    <table>
+      <tr><th>Concept</th><th>Use</th><th>Avoid</th></tr>
+      <tr><td>The three areas</td><td>Technology, Product, Users</td><td>Tech, customers, audience</td></tr>
+      <tr><td>Ewa's role with AI</td><td>directs, reviews, checks</td><td>prompts, generates</td></tr>
+      <tr><td>Readers</td><td>people and AI</td><td>humans and LLMs</td></tr>
+      <tr><td>Project state</td><td>Finished, In progress</td><td>WIP, beta</td></tr>
+      <tr><td>Name</td><td>Ewa Jabłońska (with Polish letters)</td><td>Ewa Jablonska</td></tr>
+    </table>
+    <p>Full guide: <a href="../tone-of-voice.md">tone-of-voice.md</a>. Tagline and hero line: not in scope; Ewa writes them.</p>
+  </section>
+
+  <section id="logo">
+    <p class="label">3</p>
+    <h2>Logo</h2>
+    <p class="lede">Three arcs with nodes. Each arc starts at a node and stops before the next node. Nothing in the centre.</p>
+    <div class="grid two">
+      <figure style="margin:0"><div class="tile d"><img src="../logo/exports/mark-colour-on-dark.svg" alt="Mark on dark" width="140"></div><p class="cap">Default: on dark background</p></figure>
+      <figure style="margin:0"><div class="tile l"><img src="../logo/exports/mark-colour-on-light.svg" alt="Mark on light" width="140"></div><p class="cap">On light background (darker colour set)</p></figure>
+    </div>
+    <h3>Variants</h3>
+    <div class="grid four">
+      <figure style="margin:0"><div class="tile d"><img src="../logo/exports/mark-white.svg" alt="White mark" width="72"></div><p class="cap">One colour, white</p></figure>
+      <figure style="margin:0"><div class="tile w"><img src="../logo/exports/mark-ink.svg" alt="Ink mark" width="72"></div><p class="cap">One colour, ink</p></figure>
+      <figure style="margin:0"><div class="tile s"><img src="../logo/exports/mark-small-colour-on-dark.svg" alt="Small mark" width="24"> &nbsp; <img src="../logo/exports/mark-small-colour-on-dark.svg" alt="" width="16"></div><p class="cap">Small variant, 24 and 16 px</p></figure>
+      <figure style="margin:0"><div class="tile l"><img src="../logo/exports/favicon.svg" alt="Favicon" width="64"> &nbsp; <img src="../logo/exports/avatar.svg" alt="Avatar" width="64" style="border-radius:50%"></div><p class="cap">Favicon and round avatar</p></figure>
+    </div>
+    <h3>Lockup</h3>
+    <div class="grid two">
+      <div class="tile d"><img src="../logo/exports/lockup-on-dark.png" alt="Lockup on dark" width="300"></div>
+      <div class="tile l"><img src="../logo/exports/lockup-on-light.png" alt="Lockup on light" width="300"></div>
+    </div>
+    <h3>Rules</h3>
+    <table>
+      <tr><th>Rule</th><th>Value</th></tr>
+      <tr><td>Minimum size</td><td>Standard mark: 32 px. From 16 to 31 px use the small variant. Print: 8 mm (proposed, not tested on paper).</td></tr>
+      <tr><td>Clear space</td><td>One node diameter on each side.</td></tr>
+      <tr><td>Colour order</td><td>Top node and right arc: Product. Right node and bottom arc: Technology. Left node and left arc: Users.</td></tr>
+      <tr><td>Backgrounds</td><td>Brand dark, brand surface, brand light, white. On other colours use one colour.</td></tr>
+      <tr><td>Lockup</td><td>Mark 56 for text 36. Gap: a quarter of the mark width. Inter 600.</td></tr>
+    </table>
+    <h3>Misuse</h3>
+    <div class="grid four">
+      <figure style="margin:0"><div class="tile d no"><svg viewBox="0 0 100 100" width="84" role="img" aria-label="Mark with an icon in the centre"><image href="../logo/exports/mark-colour-on-dark.svg" width="100" height="100"/><rect x="38" y="44" width="24" height="18" rx="3" fill="#fff"/></svg></div><p class="cap">Something in the centre</p></figure>
+      <figure style="margin:0"><div class="tile d no"><img src="../logo/exports/mark-colour-on-dark.svg" alt="Mark with glow" width="84" style="filter:drop-shadow(0 0 10px #58C1DB) drop-shadow(0 0 16px #8E7FE0)"></div><p class="cap">Glow or shadow</p></figure>
+      <figure style="margin:0"><div class="tile d no"><img src="../logo/exports/mark-colour-on-dark.svg" alt="Stretched mark" width="120" height="60" style="height:60px"></div><p class="cap">Stretch or rotate</p></figure>
+      <figure style="margin:0"><div class="tile l no"><img src="../logo/exports/mark-colour-on-dark.svg" alt="Dark-mode colours on light" width="84"></div><p class="cap">Dark-mode colours on light</p></figure>
+    </div>
+    <p>Details and file list: <a href="../logo/usage.md">logo/usage.md</a>. Test sheet: <a href="../logo/test-sheet.png">logo/test-sheet.png</a>.</p>
+  </section>
+
+  <section id="colour">
+    <p class="label">4</p>
+    <h2>Colour</h2>
+    <p class="lede">Colour is a code. Each area has one colour. Do not use the area colours for anything else.</p>
+    <div class="grid four">
+      <div><div class="sw" style="background:#6888D9"></div><p class="swt"><b>Technology</b><span>#6888D9 dark · #4464AD light</span></p></div>
+      <div><div class="sw" style="background:#8E7FE0"></div><p class="swt"><b>Product</b><span>#8E7FE0 dark · #6A58C4 light</span></p></div>
+      <div><div class="sw" style="background:#58C1DB"></div><p class="swt"><b>Users</b><span>#58C1DB dark · #2F8FA6 light</span></p></div>
+      <div><div class="sw" style="background:#fff"></div><p class="swt"><b>Centre: Technical Writer + AI</b><span>#FFFFFF dark · #162444 light</span></p></div>
+    </div>
+    <h3>Dark mode (primary)</h3>
+    <div class="grid four">
+      <div><div class="sw" style="background:#0B1020"></div><p class="swt"><b>Background</b><span>#0B1020</span></p></div>
+      <div><div class="sw" style="background:#121934"></div><p class="swt"><b>Surface</b><span>#121934</span></p></div>
+      <div><div class="sw" style="background:#E8EBF7"></div><p class="swt"><b>Ink</b><span>#E8EBF7 · 15.91:1</span></p></div>
+      <div><div class="sw" style="background:#AFB7D4"></div><p class="swt"><b>Muted text</b><span>#AFB7D4 · 9.50:1</span></p></div>
+      <div><div class="sw" style="background:#26305A"></div><p class="swt"><b>Line</b><span>#26305A · decoration</span></p></div>
+      <div><div class="sw" style="background:#5F70B0"></div><p class="swt"><b>Functional line</b><span>#5F70B0 · 3.99:1</span></p></div>
+      <div><div class="sw" style="background:#C5CEF0"></div><p class="swt"><b>Link</b><span>#C5CEF0 · 12.13:1</span></p></div>
+      <div><div class="sw" style="background:#1A2347"></div><p class="swt"><b>Surface raised</b><span>#1A2347</span></p></div>
+    </div>
+    <h3>Light mode (docs, CV, Confluence)</h3>
+    <div class="grid four">
+      <div><div class="sw" style="background:#F6F7FB"></div><p class="swt"><b>Background</b><span>#F6F7FB</span></p></div>
+      <div><div class="sw" style="background:#FFFFFF"></div><p class="swt"><b>Surface</b><span>#FFFFFF</span></p></div>
+      <div><div class="sw" style="background:#162444"></div><p class="swt"><b>Ink</b><span>#162444 · 14.31:1</span></p></div>
+      <div><div class="sw" style="background:#4A5370"></div><p class="swt"><b>Muted text</b><span>#4A5370 · 7.10:1</span></p></div>
+      <div><div class="sw" style="background:#D0D7F2"></div><p class="swt"><b>Line</b><span>#D0D7F2 · decoration</span></p></div>
+      <div><div class="sw" style="background:#7A88B8"></div><p class="swt"><b>Functional line</b><span>#7A88B8 · 3.24:1</span></p></div>
+      <div><div class="sw" style="background:#2C4376"></div><p class="swt"><b>Link</b><span>#2C4376 · 9.03:1</span></p></div>
+      <div><div class="sw" style="background:#25707F"></div><p class="swt"><b>Users label text</b><span>#25707F · 5.29:1</span></p></div>
+    </div>
+    <h3>Rules</h3>
+    <ul>
+      <li>An area colour says "this belongs to this area". A project between two areas shows both colours.</li>
+      <li>Always put a text label next to the colour.</li>
+      <li>Status is neutral: "Finished" is a filled pill, "In progress" is an outline pill.</li>
+      <li>On light, the Users colour <code>#2F8FA6</code> is 3.50:1. Use it for shapes. For small text use <code>#25707F</code>.</li>
+    </ul>
+    <p>Ratios are calculated against the mode background. Calculated contrast is not an accessibility audit. Full table: <a href="../palette.md">palette.md</a>. Tokens: <a href="../tokens.css">tokens.css</a>.</p>
+  </section>
+
+  <section id="type">
+    <p class="label">5</p>
+    <h2>Typography</h2>
+    <p class="lede">One family: Inter. Open licence (SIL OFL 1.1). Weights 400, 500 and 600.</p>
+    <div class="card">
+      <p class="label">Technical Writing Portfolio</p>
+      <p class="type-h1">Ewa Jabłońska</p>
+      <p style="font-size:1.5rem;font-weight:600;margin:1rem 0 .3rem">Section heading, 24 px, weight 600</p>
+      <p style="font-size:1.25rem;font-weight:600;margin:0 0 .6rem">Card title, 20 px, weight 600</p>
+      <p style="margin:0 0 .6rem">Body text, 16 px, weight 400, line height 1.6. A line has 68 characters at most. Polish letters: ą ć ę ł ń ó ś ź ż Ą Ć Ę Ł Ń Ó Ś Ź Ż. Digits: 0123456789.</p>
+      <p style="font-size:.875rem;color:var(--color-muted);margin:0">Small text, 14 px, for card text and captions.</p>
+    </div>
+    <table>
+      <tr><th>Role</th><th>Size</th><th>Weight</th><th>Notes</th></tr>
+      <tr><td>H1</td><td>32–48 px</td><td>600</td><td>Tracking −0.01em</td></tr>
+      <tr><td>H2</td><td>24 px</td><td>600</td><td>A thin rule follows it on the site</td></tr>
+      <tr><td>H3</td><td>20 px</td><td>600</td><td>Card titles</td></tr>
+      <tr><td>Body / lead</td><td>16 / 18 px</td><td>400</td><td>Line height 1.6</td></tr>
+      <tr><td>Label</td><td>12 px</td><td>600</td><td>Upper case, tracking 0.12em, 4 words at most</td></tr>
+      <tr><td>Code</td><td>0.9em</td><td>400</td><td>System monospace. Only for code, never for labels.</td></tr>
+    </table>
+    <ul>
+      <li>Sentence case. Left-aligned. No gradient text. No italics; use weight 600 for emphasis.</li>
+      <li>Print (CV): body 10 pt, small 8.5 pt, H1 24 pt.</li>
+    </ul>
+    <p>Details and licence: <a href="../typography.md">typography.md</a>, <a href="../fonts/OFL.txt">fonts/OFL.txt</a>.</p>
+  </section>
+
+  <section id="system">
+    <p class="label">6</p>
+    <h2>Graphic system: Junction</h2>
+    <p class="lede">The writer stands where technology, product, and users meet. The brand shows the meeting points: a node marks a point, a line joins points.</p>
+    <div class="grid">
+      <div class="card"><h3>Area label</h3><p><span class="area"><i class="node n-t"></i>Technology</span></p><p><span class="area"><i class="node n-p"></i>Product</span></p><p><span class="area"><i class="node n-u"></i>Users</span></p><p class="cap">One node and the area name.</p></div>
+      <div class="card"><h3>Between two areas</h3><p><span class="area pair"><span><i class="node n-t"></i><i class="node n-p"></i></span>Technology + Product</span></p><p><span class="area pair"><span><i class="node n-p"></i><i class="node n-u"></i></span>Product + Users</span></p><p><span class="area pair"><span><i class="node n-t"></i><i class="node n-u"></i></span>Technology + Users</span></p><p class="cap">Two nodes that overlap.</p></div>
+      <div class="card"><h3>Status and tags</h3><p><span class="pill done">Finished</span> &nbsp; <span class="pill">In progress</span></p><p class="cap">Status is neutral. It does not use area colours.</p></div>
+    </div>
+    <h3>Project card</h3>
+    <div class="grid two">
+      <div class="card pc" style="--a:var(--color-technology);--b:var(--color-product)">
+        <span class="area pair"><span><i class="node n-t"></i><i class="node n-p"></i></span>Technology + Product</span>
+        <h3>Promo Video Skill</h3>
+        <p>Documentation for an AI skill, written so that both the people who use it and the model that runs it can understand what it does, when to use it, and where its limits are.</p>
+        <div><span class="pill">In progress</span></div>
+      </div>
+      <div>
+        <ul>
+          <li>Surface colour, 1 px line, radius 10 px.</li>
+          <li>A 3 px junction line on the left edge, from the first area colour to the second.</li>
+          <li>No shadow, no glow, no glass effect.</li>
+          <li>The card text is the current site text.</li>
+        </ul>
+      </div>
+    </div>
+    <h3>The diagram</h3>
+    <figure style="margin:0" class="tile d"><img src="../graphic/venn-on-dark.png" alt="Venn diagram: Technology, Product, and Users. Promo Video Skill, Quoteable Service API and StickerStart sit where two areas meet; Technical Writer + AI is in the centre" style="max-width:640px;width:100%"></figure>
+    <p>Three outlined circles with a light fill. The project name sits inside the area where its two circles meet. The centre says "Technical Writer + AI". No dots and no lines in the diagram: the skill words ("docs for people and AI") are on the project cards. A light version exists for Confluence and print.</p>
+    <p>Details: <a href="../graphic-system.md">graphic-system.md</a>.</p>
+  </section>
+
+  <section id="use">
+    <p class="label">7</p>
+    <h2>In use</h2>
+    <p class="lede">Mockups for the four channels. Text in dashed boxes is a placeholder: Ewa writes it.</p>
+    <h3>Portfolio site (dark)</h3>
+    <img class="shot tall" src="../applications/renders/site.png" alt="Mockup of the portfolio home page: header, name, legend, diagram and three project cards">
+  </section>
+  <section>
+    <h3 style="margin-top:0">Docs site header (light)</h3>
+    <img class="shot" src="../applications/renders/docs.png" alt="Mockup of a docs site header with the mark, the project name and the area label">
+    <h3>CV header (light, A4)</h3>
+    <img class="shot" src="../applications/renders/cv.png" alt="Mockup of the CV header with name, mark, legend and project list" style="max-width:560px">
+    <h3>LinkedIn banner and avatar</h3>
+    <img class="shot" src="../applications/renders/linkedin.png" alt="Mockup of the LinkedIn banner with the mark, the name and the legend">
+    <h3>Confluence page (light)</h3>
+    <img class="shot" src="../applications/renders/conf.png" alt="Mockup of a Confluence page with a dark banner and the light diagram" style="max-width:640px">
+    <p>Editable source: <a href="../applications/index.html">applications/index.html</a>.</p>
+  </section>
+
+  <section id="files">
+    <p class="label">8</p>
+    <h2>Files and status</h2>
+    <table>
+      <tr><th>Item</th><th>File</th><th>Status</th><th>Decision</th></tr>
+      <tr><td>Positioning</td><td>brief.md</td><td>working</td><td>Confirmed by Ewa</td></tr>
+      <tr><td>Voice guide</td><td>tone-of-voice.md</td><td>working</td><td>Describes Ewa's voice; not reviewed by Ewa yet</td></tr>
+      <tr><td>Creative direction</td><td>explorations/2026-11-12-directions/</td><td>concept, selected</td><td>A · Junction, approved by Ewa</td></tr>
+      <tr><td>Mark</td><td>logo/source, logo/exports</td><td>production</td><td>logo-01/A, approved final</td></tr>
+      <tr><td>Lockup</td><td>logo/exports/lockup-*.png</td><td>working</td><td>Routine; lettering is not outlined</td></tr>
+      <tr><td>Palette and tokens</td><td>tokens.css, palette.md</td><td>production</td><td>Approved with the book</td></tr>
+      <tr><td>Typography</td><td>typography.md, fonts/</td><td>production</td><td>Inter only, chosen by Ewa</td></tr>
+      <tr><td>Diagram</td><td>graphic/venn-*.svg, .png</td><td>working</td><td>Content from SCRUM-147; text size on a phone open</td></tr>
+      <tr><td>Applications</td><td>applications/</td><td>mockup</td><td>Not built on the live site</td></tr>
+    </table>
+    <h3>What is live</h3>
+    <p>The live site still shows the old identity (commit 60b8994): the raster logo with the briefcase, the old Venn diagram and the old colours. Nothing in this book is applied yet. The plan for the change is in <a href="../rebranding-plan.md">rebranding-plan.md</a>.</p>
+    <h3>Not verified</h3>
+    <ul>
+      <li>No print test on paper.</li>
+      <li>No search for similar logos. This book is not legal clearance.</li>
+      <li>No market research: the category notes in the brief are assumptions.</li>
+      <li>Contrast is calculated. It is not an accessibility audit.</li>
+    </ul>
+    <p>Start here: <a href="../delivery/START-HERE.md">delivery/START-HERE.md</a>. All decisions: <a href="../decisions.md">decisions.md</a>.</p>
+  </section>
+
+  <footer>Ewa Jabłońska · technical-writing.net · Brand book v1, approved 12 November 2026. Inter is licensed under the SIL Open Font License 1.1.</footer>
+</div>
+</body>
+</html>

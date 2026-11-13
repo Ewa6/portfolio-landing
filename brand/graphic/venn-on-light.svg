@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 900 530" role="img" aria-labelledby="t d" font-family="Inter, system-ui, sans-serif">
+<title id="t">Technology, Product and Users: where each skill meets a project</title>
+<desc id="d">Three overlapping circles. Promo Video Skill is where Technology and Product meet. Quoteable Service API is where Technology and Users meet. StickerStart is where Product and Users meet. A technical writer working with AI is in the centre.</desc>
+<g stroke-width="2">
+<circle cx="450" cy="210" r="170" fill="#4464AD" fill-opacity="0.1" stroke="#4464AD"/>
+<circle cx="352" cy="370" r="170" fill="#6A58C4" fill-opacity="0.1" stroke="#6A58C4"/>
+<circle cx="548" cy="370" r="170" fill="#2F8FA6" fill-opacity="0.1" stroke="#2F8FA6"/>
+</g>
+<g font-size="26" font-weight="600" text-anchor="middle">
+<text x="450" y="118" fill="#3A589E">Technology</text>
+<text x="275" y="450" fill="#5944AD">Product</text>
+<text x="625" y="450" fill="#25707F">Users</text>
+</g>
+<g font-size="15" font-weight="600" text-anchor="middle" fill="#162444">
+<text x="352" y="262">Promo Video</text><text x="352" y="280">Skill</text>
+<text x="548" y="262">Quoteable</text><text x="548" y="280">Service API</text>
+<text x="450" y="430">StickerStart</text>
+<text x="450" y="312">Technical</text><text x="450" y="330">Writer</text><text x="450" y="348">+ AI</text>
+</g>
+</svg>

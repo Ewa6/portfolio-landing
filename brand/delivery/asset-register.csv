@@ -1,0 +1,21 @@
+asset_id,path,role,version,artefact_status,decision_status,decision_id,source_or_prompt,created_or_acquired,licence_or_terms,redistribution,dimensions_or_variants,checks,open_issues
+L01,logo/source/mark-master.svg,Mark master,1,production,approved final,D02 D09 D18,scripts/build-logo.mjs,2026-11-12,Owner's own work,Owner decides,viewBox 100x100,check-assets ok,-
+L02,logo/exports/mark-colour-on-dark.svg,Mark for dark backgrounds,1,production,approved final,D09 D18,scripts/build-logo.mjs,2026-11-12,Owner's own work,Owner decides,SVG + 512 px PNG,check-assets ok; test sheet,-
+L03,logo/exports/mark-colour-on-light.svg,Mark for light backgrounds,1,production,approved final,D10 D18,scripts/build-logo.mjs,2026-11-12,Owner's own work,Owner decides,SVG + 512 px PNG,check-assets ok; test sheet,-
+L04,logo/exports/mark-white.svg,One-colour mark (white),1,production,approved final,D11 D18,scripts/build-logo.mjs,2026-11-12,Owner's own work,Owner decides,SVG,check-assets ok,-
+L05,logo/exports/mark-ink.svg,One-colour mark (ink),1,production,approved final,D11 D18,scripts/build-logo.mjs,2026-11-12,Owner's own work,Owner decides,SVG,check-assets ok,-
+L06,logo/exports/mark-small-*.svg,Small variant 16-31 px,1,production,approved final,D11 D18,scripts/build-logo.mjs,2026-11-12,Owner's own work,Owner decides,4 SVG files,check-assets ok; test sheet,-
+L07,logo/exports/favicon.svg,Favicon,1,production,approved final,D11 D18,scripts/build-logo.mjs,2026-11-12,Owner's own work,Owner decides,SVG + PNG 16/32/180/512,check-assets ok,Not tested in a browser tab
+L08,logo/exports/avatar.svg,Round avatar,1,production,approved final,D11 D18,scripts/build-logo.mjs,2026-11-12,Owner's own work,Owner decides,SVG + 800 px PNG,check-assets ok,-
+L09,logo/exports/lockup-on-dark.png,Lockup for dark backgrounds,1,working,routine,D11,logo/source/lockup.html,2026-11-12,Owner's own work; Inter OFL,Owner decides,1000x192 px PNG,alpha ok,Lettering not outlined; no SVG
+L10,logo/exports/lockup-on-light.png,Lockup for light backgrounds,1,working,routine,D11,logo/source/lockup.html,2026-11-12,Owner's own work; Inter OFL,Owner decides,1000x192 px PNG,alpha ok,Lettering not outlined; no SVG
+L11,logo/test-sheet.png,Size and background test sheet,1,working,routine,D11,logo/test-sheet.html,2026-11-12,Owner's own work,Owner decides,1320 px wide,inspected,No paper test
+C01,tokens.css,Colour and type tokens,1,production,approved final,D03 D10 D18,Written by hand,2026-11-12,Owner's own work,Owner decides,dark + light,contrast.mjs,Not applied to the site
+F01,fonts/inter-latin-wght-normal.woff2,Text font (Latin),5.2.8,production,approved final,D08 D14,cdn.jsdelivr.net/npm/@fontsource-variable/inter@5.2.8,2026-11-12,SIL OFL 1.1 (fonts/OFL.txt),Allowed with licence,variable 100-900,PDF embeds Inter,-
+F02,fonts/inter-latin-ext-wght-normal.woff2,Text font (Latin Extended),5.2.8,production,approved final,D08 D14,cdn.jsdelivr.net/npm/@fontsource-variable/inter@5.2.8,2026-11-12,SIL OFL 1.1 (fonts/OFL.txt),Allowed with licence,variable 100-900,Polish glyphs checked,-
+G01,graphic/venn-on-dark.svg,Venn diagram for dark,1,working,routine,D12,scripts/build-graphics.mjs; content SCRUM-147,2026-11-12,Owner's own work,Owner decides,SVG (live text) + 1800 px PNG,inspected,Label words wait for Ewa
+G02,graphic/venn-on-light.svg,Venn diagram for light,1,working,routine,D12,scripts/build-graphics.mjs; content SCRUM-147,2026-11-12,Owner's own work,Owner decides,SVG (live text) + 1800 px PNG,inspected,Label words wait for Ewa
+A01,applications/index.html,Application mockups (5),1,mockup,routine,D13,Written by hand,2026-11-12,Owner's own work,Owner decides,renders/site docs cv linkedin conf .png,inspected at desktop width,Not built on live channels
+B01,brand-book/index.html,Brand book (screen),1,production,approved final,D18,Written by hand,2026-11-12,Owner's own work,Owner decides,HTML,check-book ok,-
+B02,brand-book/brand-book.pdf,Brand book (PDF),1,production,approved final,D18,render.mjs from index.html,2026-11-12,Owner's own work,Owner decides,15 pages A4,fonts embedded,-
+X01,public/logo.png (repo),Old logo (baseline),-,live,superseded when applied,D02,AI-made raster (owner),before 2026-11,Owner's own work,-,1024x1024,-,Stays live until the apply-brand thread
