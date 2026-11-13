@@ -16,19 +16,19 @@ const toc = headings.filter((h) => h.depth > 1 && h.depth < 4);
 ---
 
 {toc.length > 0 && (
-  <div class="toc bg-[#D0D7F2]/20 dark:bg-[#4464AD]/10 border border-[#D0D7F2] dark:border-[#434448] p-5 rounded-xl mb-8 md:mb-12">
-    <h2 class="text-lg font-semibold text-[#111112] dark:text-[#EDECF8] mb-4">Table of Contents</h2>
+  <nav class="toc card mb-8 md:mb-12" aria-labelledby="toc-heading">
+    <h2 id="toc-heading" class="kicker mb-4">Table of contents</h2>
     <ul class="space-y-2 text-sm">
       {toc.map((heading) => (
         <li class={heading.depth === 3 ? "ml-4" : ""}>
           <a
             href={`#${heading.slug}`}
-            class="text-[#434448] dark:text-[#D0D7F2] hover:text-[#4464AD] dark:hover:text-[#A3B8EE] transition-colors line-clamp-2"
+            class="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline underline-offset-4 line-clamp-2"
           >
             {heading.text.replace(/\s*#$/, '')}
           </a>
         </li>
       ))}
     </ul>
-  </div>
+  </nav>
 )}

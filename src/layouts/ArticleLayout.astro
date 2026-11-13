@@ -3,59 +3,60 @@ import Layout from "./Layout.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 
 const { frontmatter, headings } = Astro.props;
+
+const arrowLeft = '<path d="M19 12H5M12 19l-7-7 7-7" />';
+const arrowRight = '<path d="M5 12h14M12 5l7 7-7 7" />';
+const iconAttrs = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 14,
+  height: 14,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": 2,
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "aria-hidden": "true",
+};
 ---
 
-<Layout title={`${frontmatter.title} — Ewa Jabłońska`}>
-  <main class="max-w-3xl mx-auto px-6 py-20 md:py-32">
-    <article>
+<Layout title={`${frontmatter.title} | Ewa Jabłońska`} description={frontmatter.description}>
+  <main class="pt-10 md:pt-16">
+    <article class="max-w-[46rem]">
       <header class="mb-12">
-        <nav class="mb-10 flex flex-wrap gap-x-6 gap-y-3" aria-label="Article navigation">
-          <a href="/blog" class="inline-flex items-center gap-2 text-sm font-medium text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors duration-200">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
+        <nav class="mb-10 flex flex-wrap gap-x-6 gap-y-3 text-sm" aria-label="Article navigation">
+          <a href="/blog" class="text-link">
+            <svg {...iconAttrs} set:html={arrowLeft} />
             Back to blog
           </a>
-          <a href="/portfolio" class="inline-flex items-center gap-2 text-sm font-medium text-[#5944AD] dark:text-[#A096D9] hover:text-[#4464AD] dark:hover:text-[#C5B3F1] transition-colors duration-200">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
+          <a href="/" class="text-link">
+            <svg {...iconAttrs} set:html={arrowLeft} />
             Back to portfolio
           </a>
         </nav>
-        {/* <a href="/" class="text-[#4464AD] dark:text-[#A3B8EE] hover:underline mb-8 inline-block text-[0.95rem] font-medium transition-colors hover:text-[#4498AD] dark:hover:text-[#6BC1D6]">
-          ← Back to Portfolio
-        </a> */}
-        
-        <div class="flex items-center gap-3 text-sm text-[#434448] dark:text-[#D0D7F2] opacity-80 mb-6">
+
+        <div class="flex flex-wrap items-center gap-3 text-sm text-[var(--color-muted)] mb-6">
           {frontmatter.date && <time datetime={frontmatter.date}>{new Date(frontmatter.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>}
           {frontmatter.tags && (
-            <>
-              <span aria-hidden="true">•</span>
-              <div class="flex gap-2">
-                {frontmatter.tags.map((tag: string) => (
-                  <span class="bg-[#D0D7F2]/40 dark:bg-[#434448]/40 px-2 py-0.5 rounded-full text-xs font-medium">{tag}</span>
-                ))}
-              </div>
-            </>
+            <ul class="tags" role="list">
+              {frontmatter.tags.map((tag: string) => (
+                <li class="tag">{tag}</li>
+              ))}
+            </ul>
           )}
         </div>
 
-        <h1 class="text-4xl md:text-5xl font-bold text-[#111112] dark:text-[#EDECF8] tracking-tight mb-6 leading-tight">
-          {frontmatter.title}
-        </h1>
+        <h1 class="h1 mb-6">{frontmatter.title}</h1>
 
         {frontmatter.description && (
-          <p class="text-[1.35rem] text-[#434448] dark:text-[#D0D7F2] leading-relaxed opacity-90">
-            {frontmatter.description}
-          </p>
+          <p class="lead">{frontmatter.description}</p>
         )}
       </header>
 
       {frontmatter.editorNote && (
-        <div class="mb-12 bg-[#D0D7F2]/20 dark:bg-[#4464AD]/10 border-l-4 border-[#4464AD] dark:border-[#A3B8EE] p-5 rounded-r-xl">
-          <p class="text-xs font-bold uppercase tracking-widest text-[#4464AD] dark:text-[#A3B8EE] mb-2">Editor's Note</p>
-          <div class="text-[#434448] dark:text-[#D0D7F2] text-[0.95rem] leading-relaxed">
+        <div class="card mb-12">
+          <p class="kicker mb-2">Editor's note</p>
+          <div class="text-[0.95rem] leading-relaxed text-[var(--color-muted)]">
             {frontmatter.editorNote}
           </div>
         </div>
@@ -69,28 +70,18 @@ const { frontmatter, headings } = Astro.props;
         <slot />
       </div>
 
-      <nav class="mt-16 border-t border-[#D0D7F2] dark:border-[#434448] pt-8 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between" aria-label="Article footer navigation">
-        <a href="/blog" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-[#4464AD] dark:border-[#A3B8EE] text-[#4464AD] dark:text-[#A3B8EE] text-sm font-medium hover:bg-[#4464AD]/10 dark:hover:bg-[#4464AD]/15 transition-all duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
+      <nav class="mt-16 border-t border-[var(--color-line)] pt-8 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between" aria-label="Article footer navigation">
+        <a href="/blog" class="btn btn--secondary">
+          <svg {...iconAttrs} width="15" height="15" set:html={arrowLeft} />
           Back to blog navigation
         </a>
         {frontmatter.nextPostUrl && (
-          <a href={frontmatter.nextPostUrl} aria-label={`Next post: ${frontmatter.nextPostLabel ?? "Read another post"}`} class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-[#5944AD] dark:border-[#A096D9] text-[#5944AD] dark:text-[#A096D9] text-sm font-medium hover:bg-[#5944AD]/10 dark:hover:bg-[#5944AD]/15 transition-all duration-200">
+          <a href={frontmatter.nextPostUrl} aria-label={`Next post: ${frontmatter.nextPostLabel ?? "Read another post"}`} class="btn btn--secondary">
             Next post
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <svg {...iconAttrs} width="15" height="15" set:html={arrowRight} />
           </a>
         )}
       </nav>
-
-      <p class="mt-8 text-sm text-center sm:text-left">
-        <button type="button" data-cookie-settings class="text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors cursor-pointer opacity-80">
-          Cookie settings
-        </button>
-      </p>
     </article>
   </main>
 </Layout>

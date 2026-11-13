@@ -7,12 +7,12 @@
 
 <div
   id="cookie-consent"
-  class="cookie-consent fixed bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm z-[100] rounded-xl border border-[#D0D7F2] dark:border-[#434448] bg-white/95 dark:bg-[#1C1C20]/95 backdrop-blur-md shadow-lg shadow-[#4464AD]/10 p-5 text-sm text-[#434448] dark:text-[#D0D7F2]"
+  class="cookie-consent fixed bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm z-[100] p-5 text-sm"
   role="region"
   aria-labelledby="cookie-consent-title"
   hidden
 >
-  <p id="cookie-consent-title" class="font-semibold text-[#2B2C30] dark:text-white mb-1.5">
+  <p id="cookie-consent-title" class="cookie-consent__title mb-1.5">
     Can I count your visit?
   </p>
   <p class="leading-relaxed">
@@ -23,11 +23,11 @@
 
   <details class="mt-3 group">
     <summary
-      class="cursor-pointer select-none text-[#4464AD] dark:text-[#A3B8EE] hover:text-[#5944AD] dark:hover:text-[#C5B3F1] transition-colors"
+      class="text-link select-none"
     >
       Details
     </summary>
-    <ul class="mt-2 space-y-1.5 text-xs leading-relaxed opacity-90 list-disc pl-4">
+    <ul class="mt-2 space-y-1.5 text-xs leading-relaxed list-disc pl-4">
       <li>
         <strong>Service:</strong> Google Analytics 4, provided by Google Ireland
         Ltd. Data may be processed in the US under the EU-US Data Privacy
@@ -50,7 +50,7 @@
         Use the contact details on the
         <a
           href="/#contact"
-          class="underline underline-offset-2 hover:text-[#5944AD] dark:hover:text-[#C5B3F1]"
+          class="text-link"
           >home page</a
         >.
       </li>
@@ -58,10 +58,10 @@
   </details>
 
   <div class="mt-4 grid grid-cols-2 gap-2">
-    <button type="button" class="cookie-consent__btn" data-cookie-choice="denied">
+    <button type="button" class="btn btn--secondary" data-cookie-choice="denied">
       Reject
     </button>
-    <button type="button" class="cookie-consent__btn" data-cookie-choice="granted">
+    <button type="button" class="btn btn--secondary" data-cookie-choice="granted">
       Accept
     </button>
   </div>
@@ -118,33 +118,23 @@
       transform: none;
     }
   }
-  .cookie-consent__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.55rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #4464ad;
-    color: #4464ad;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  /* Brand surface card. Both choices have the same style (equal weight). */
+  .cookie-consent {
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-functional-line);
+    border-radius: var(--radius-card);
+    color: var(--color-muted);
   }
-  .cookie-consent__btn:hover {
-    background-color: rgb(68 100 173 / 0.1);
+  .cookie-consent__title {
+    font-weight: 600;
+    color: var(--color-ink);
   }
-  .cookie-consent__btn:focus-visible {
-    outline: 2px solid #5944ad;
-    outline-offset: 2px;
-  }
-  .dark .cookie-consent__btn {
-    border-color: #a3b8ee;
-    color: #a3b8ee;
-  }
-  .dark .cookie-consent__btn:hover {
-    background-color: rgb(68 100 173 / 0.15);
+  .cookie-consent strong {
+    font-weight: 600;
+    color: var(--color-ink);
   }
   .cookie-consent code {
+    font-family: var(--font-code);
     font-size: 0.95em;
   }
 </style>
