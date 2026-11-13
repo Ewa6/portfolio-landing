@@ -1,0 +1,100 @@
+/* Ewa Jabłońska — technical-writing.net · brand tokens v1 (2026-11-12)
+   Canonical source for the brand. Status: production, approved D18 (not yet applied to the site).
+   Dark is the primary mode. Light: add data-theme="light" on <html> or a container.
+   Colour is a code: Technology = blue, Product = purple, Users = aqua.
+   Do not use the three area colours for status, decoration or links. */
+:root {
+  /* Areas (the code) */
+  --color-technology: #6888D9;
+  --color-product: #8E7FE0;
+  --color-users: #58C1DB;
+  /* Text-safe area colours (labels on background and surface) */
+  --color-technology-text: #9DAFE6;
+  --color-product-text: #B4A9EE;
+  --color-users-text: #7FD3E8;
+  /* Area tints for fills (diagram circles, card washes) */
+  --color-technology-tint: rgb(104 136 217 / 0.14);
+  --color-product-tint: rgb(142 127 224 / 0.14);
+  --color-users-tint: rgb(88 193 219 / 0.14);
+
+  /* Neutrals */
+  --color-background: #0B1020;
+  --color-surface: #121934;
+  --color-surface-raised: #1A2347;
+  --color-ink: #E8EBF7;
+  --color-muted: #AFB7D4;
+  --color-line: #26305A;
+  --color-functional-line: #5F70B0;
+  --color-centre: #FFFFFF;
+
+  /* Actions */
+  --color-link: #C5CEF0;
+  --color-link-hover: #FFFFFF;
+  --color-focus: #FFFFFF;
+  --color-button: #E8EBF7;
+  --color-on-button: #0B1020;
+
+  /* Type: one family */
+  --font-text: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-code: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --size-label: 0.75rem;
+  --size-small: 0.875rem;
+  --size-body: 1rem;
+  --size-lead: 1.125rem;
+  --size-h3: 1.25rem;
+  --size-h2: 1.5rem;
+  --size-h1: clamp(2rem, 5vw, 3rem);
+  --line-height-body: 1.6;
+  --line-height-heading: 1.15;
+  --tracking-heading: -0.01em;
+  --tracking-label: 0.12em;
+
+  /* Space, shape */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --radius-card: 0.625rem;
+  --radius-pill: 999px;
+  --node-size: 0.5rem;
+  --arc-width: 3px;
+  --measure: 68ch;
+
+  /* Print (CV) */
+  --print-body: 10pt;
+  --print-small: 8.5pt;
+  --print-h1: 24pt;
+  --print-margin: 16mm;
+}
+
+[data-theme="light"] {
+  --color-technology: #4464AD;
+  --color-product: #6A58C4;
+  --color-users: #2F8FA6;
+  --color-technology-text: #3A589E;
+  --color-product-text: #5944AD;
+  --color-users-text: #25707F;
+  --color-technology-tint: rgb(68 100 173 / 0.10);
+  --color-product-tint: rgb(106 88 196 / 0.10);
+  --color-users-tint: rgb(47 143 166 / 0.10);
+
+  --color-background: #F6F7FB;
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #FFFFFF;
+  --color-ink: #162444;
+  --color-muted: #4A5370;
+  --color-line: #D0D7F2;
+  --color-functional-line: #7A88B8;
+  --color-centre: #162444;
+
+  --color-link: #2C4376;
+  --color-link-hover: #162444;
+  --color-focus: #162444;
+  --color-button: #162444;
+  --color-on-button: #FFFFFF;
+}

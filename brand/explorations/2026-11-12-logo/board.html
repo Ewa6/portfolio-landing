@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Comparison board — logo-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#ececea;color:#1d1d1b;font:15px/1.5 Inter,system-ui,sans-serif}
+.board{max-width:1500px;margin:auto;padding:28px 20px}
+h1{font-size:22px;margin:0 0 6px}
+.meta{font-size:13px;color:#55554f;margin-bottom:14px}
+.status{display:inline-block;padding:2px 8px;border:1px solid #1d1d1b;border-radius:999px;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.question{background:#fff;border-left:4px solid #1d1d1b;padding:10px 14px;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.col h2{font-size:17px;margin:0}
+.col>p{font-size:13px;color:#3b3b37;margin:2px 0 10px;min-height:76px}
+.tile{display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.15)}
+.dark{background:#0B1020;color:#E8EBF7}
+.light{background:#F6F7FB;color:#162444}
+.big{height:230px}.big svg,.big img{width:170px;height:170px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.head{height:64px;gap:10px;font-weight:600;font-size:16px;justify-content:flex-start;padding:0 16px}
+.head svg,.head img{width:32px;height:32px}
+.small{height:70px;gap:18px}
+.small .s32{width:32px;height:32px}.small .s16{width:16px;height:16px}
+.avatar{height:110px}
+.avatar span{width:84px;height:84px;border-radius:50%;background:#121934;display:flex;align-items:center;justify-content:center;border:1px solid #26305A}
+.avatar svg,.avatar img{width:56px;height:56px}
+.col>p.lab{min-height:0;font-size:11px;color:#55554f;margin:8px 0 2px;text-transform:uppercase;letter-spacing:.08em}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- Geometry: vertices T(50,17) R(82,72) L(18,72); arcs bulge outward, clockwise -->
+    <symbol id="A" viewBox="0 0 100 100">
+      <g fill="none" stroke-width="8" stroke-linecap="round">
+        <path d="M50 17A64 64 0 0 1 82 72" pathLength="100" stroke-dasharray="80 100" stroke="var(--c2,#8E7FE0)"/>
+        <path d="M82 72A64 64 0 0 1 18 72" pathLength="100" stroke-dasharray="80 100" stroke="var(--c1,#6888D9)"/>
+        <path d="M18 72A64 64 0 0 1 50 17" pathLength="100" stroke-dasharray="80 100" stroke="var(--c3,#58C1DB)"/>
+      </g>
+      <circle cx="50" cy="17" r="8.5" fill="var(--c2,#8E7FE0)"/><circle cx="82" cy="72" r="8.5" fill="var(--c1,#6888D9)"/><circle cx="18" cy="72" r="8.5" fill="var(--c3,#58C1DB)"/>
+    </symbol>
+    <symbol id="B" viewBox="0 0 100 100">
+      <g fill="none" stroke-width="10" stroke-linecap="round">
+        <path d="M82 72A64 64 0 0 1 18 72" stroke="var(--c1,#6888D9)"/>
+        <path d="M18 72A64 64 0 0 1 50 17" stroke="var(--c3,#58C1DB)"/>
+        <path d="M50 17A64 64 0 0 1 82 72" stroke="var(--c2,#8E7FE0)"/>
+      </g>
+    </symbol>
+    <symbol id="C" viewBox="0 0 100 100">
+      <g fill="none" stroke-width="11" stroke-linecap="round">
+        <path d="M50 17A64 64 0 0 1 82 72" pathLength="100" stroke-dasharray="64 100" stroke-dashoffset="-18" stroke="var(--c2,#8E7FE0)"/>
+        <path d="M82 72A64 64 0 0 1 18 72" pathLength="100" stroke-dasharray="64 100" stroke-dashoffset="-18" stroke="var(--c1,#6888D9)"/>
+        <path d="M18 72A64 64 0 0 1 50 17" pathLength="100" stroke-dasharray="64 100" stroke-dashoffset="-18" stroke="var(--c3,#58C1DB)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+<div class="board">
+  <h1>Round logo-01: three arcs, no centre</h1>
+  <div class="meta"><span class="status">concept</span> · Ewa Jabłońska · 2026-11-12 · fixed: three arcs, colour order (purple, blue, aqua), direction A</div>
+  <p class="question"><strong>Question:</strong> which arc construction? Same placements in every column: large on dark, on light, header with the name, 32 px and 16 px, round avatar, one colour. Recommendation: logo-01/A, because it is the closest to the current logo and the dots are the "junction" points of direction A.</p>
+  <div class="grid">
+
+    <section class="col">
+      <h2>Baseline · current logo.png</h2>
+      <p>Raster with glow and briefcase. Shown unchanged for comparison. Blurs at 16 px; no light version.</p>
+      <div class="tile dark big"><img src="../../../public/logo.png" alt=""></div>
+      <div class="row"><div class="tile light big" style="height:110px"><img src="../../../public/logo.png" alt="" style="width:84px;height:84px"></div><div class="tile dark avatar"><span><img src="../../../public/logo.png" alt="" style="border-radius:50%"></span></div></div>
+      <div class="tile dark head" style="margin-top:8px"><img src="../../../public/logo.png" alt="">Ewa Jabłońska</div>
+      <div class="row"><div class="tile dark small"><img class="s32" src="../../../public/logo.png" alt=""><img class="s16" src="../../../public/logo.png" alt=""></div><div class="tile light small"><img class="s32" src="../../../public/logo.png" alt=""><img class="s16" src="../../../public/logo.png" alt=""></div></div>
+      <p class="lab">One colour: not available</p>
+    </section>
+
+    <section class="col">
+      <h2>logo-01/A · Arcs with nodes</h2>
+      <p>Each arc starts at a round node and stops before the next node. Closest to the current logo. The nodes are the junction points. Trade-off: the gaps get small at 16 px.</p>
+      <div class="tile dark big"><svg><use href="#A"/></svg></div>
+      <div class="row"><div class="tile light big" style="height:110px;--c1:#4464AD;--c2:#6A58C4;--c3:#2F8FA6"><svg style="width:84px;height:84px"><use href="#A"/></svg></div><div class="tile dark avatar"><span><svg><use href="#A"/></svg></span></div></div>
+      <div class="tile dark head" style="margin-top:8px"><svg><use href="#A"/></svg>Ewa Jabłońska</div>
+      <div class="row"><div class="tile dark small"><svg class="s32"><use href="#A"/></svg><svg class="s16"><use href="#A"/></svg></div><div class="tile light small" style="--c1:#4464AD;--c2:#6A58C4;--c3:#2F8FA6"><svg class="s32"><use href="#A"/></svg><svg class="s16"><use href="#A"/></svg></div></div>
+      <p class="lab">One colour</p>
+      <div class="row"><div class="tile dark small" style="--c1:#fff;--c2:#fff;--c3:#fff"><svg class="s32"><use href="#A"/></svg><svg class="s16"><use href="#A"/></svg></div><div class="tile light small" style="--c1:#162444;--c2:#162444;--c3:#162444"><svg class="s32"><use href="#A"/></svg><svg class="s16"><use href="#A"/></svg></div></div>
+    </section>
+
+    <section class="col">
+      <h2>logo-01/B · Closed loop</h2>
+      <p>Three arcs join into one continuous shape. Says "the three areas are connected". Strongest at 16 px. Trade-off: no nodes, less like the current logo; in one colour it is a plain rounded triangle.</p>
+      <div class="tile dark big"><svg><use href="#B"/></svg></div>
+      <div class="row"><div class="tile light big" style="height:110px;--c1:#4464AD;--c2:#6A58C4;--c3:#2F8FA6"><svg style="width:84px;height:84px"><use href="#B"/></svg></div><div class="tile dark avatar"><span><svg><use href="#B"/></svg></span></div></div>
+      <div class="tile dark head" style="margin-top:8px"><svg><use href="#B"/></svg>Ewa Jabłońska</div>
+      <div class="row"><div class="tile dark small"><svg class="s32"><use href="#B"/></svg><svg class="s16"><use href="#B"/></svg></div><div class="tile light small" style="--c1:#4464AD;--c2:#6A58C4;--c3:#2F8FA6"><svg class="s32"><use href="#B"/></svg><svg class="s16"><use href="#B"/></svg></div></div>
+      <p class="lab">One colour</p>
+      <div class="row"><div class="tile dark small" style="--c1:#fff;--c2:#fff;--c3:#fff"><svg class="s32"><use href="#B"/></svg><svg class="s16"><use href="#B"/></svg></div><div class="tile light small" style="--c1:#162444;--c2:#162444;--c3:#162444"><svg class="s32"><use href="#B"/></svg><svg class="s16"><use href="#B"/></svg></div></div>
+    </section>
+
+    <section class="col">
+      <h2>logo-01/C · Open arcs</h2>
+      <p>Three thick arcs with open corners, no nodes. The simplest form; the corners are the meeting points. Trade-off: the most abstract; can look like a loading or recycling sign.</p>
+      <div class="tile dark big"><svg><use href="#C"/></svg></div>
+      <div class="row"><div class="tile light big" style="height:110px;--c1:#4464AD;--c2:#6A58C4;--c3:#2F8FA6"><svg style="width:84px;height:84px"><use href="#C"/></svg></div><div class="tile dark avatar"><span><svg><use href="#C"/></svg></span></div></div>
+      <div class="tile dark head" style="margin-top:8px"><svg><use href="#C"/></svg>Ewa Jabłońska</div>
+      <div class="row"><div class="tile dark small"><svg class="s32"><use href="#C"/></svg><svg class="s16"><use href="#C"/></svg></div><div class="tile light small" style="--c1:#4464AD;--c2:#6A58C4;--c3:#2F8FA6"><svg class="s32"><use href="#C"/></svg><svg class="s16"><use href="#C"/></svg></div></div>
+      <p class="lab">One colour</p>
+      <div class="row"><div class="tile dark small" style="--c1:#fff;--c2:#fff;--c3:#fff"><svg class="s32"><use href="#C"/></svg><svg class="s16"><use href="#C"/></svg></div><div class="tile light small" style="--c1:#162444;--c2:#162444;--c3:#162444"><svg class="s32"><use href="#C"/></svg><svg class="s16"><use href="#C"/></svg></div></div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

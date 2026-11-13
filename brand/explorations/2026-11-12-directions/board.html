@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comparison board — directions-01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#ececea;color:#1d1d1b;font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.board{max-width:1640px;margin:auto;padding:28px 20px}
+.board-head{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+.board-head h1{font-size:22px;margin:0}
+.meta{font-size:13px;color:#55554f}
+.status{display:inline-block;padding:2px 8px;border:1px solid #1d1d1b;border-radius:999px;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.question{background:#fff;border-left:4px solid #1d1d1b;padding:10px 14px;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px}
+.col-head h2{font-size:18px;margin:0}
+.col-head p{margin:2px 0;font-size:13px;color:#3b3b37}
+.col-head{margin:0 0 10px;min-height:96px}
+.font-warning{display:none;background:#b00020;color:#fff;font-size:12px;padding:4px 8px;border-radius:4px;margin-bottom:8px}
+.variant.font-missing .font-warning{display:block}
+.notes{font-size:13px;margin-top:10px}
+.notes dt{font-weight:700}.notes dd{margin:0 0 6px}
+
+/* shared specimen skeleton */
+.specimen{overflow:hidden;border:1px solid rgba(0,0,0,.2)}
+.specimen h3,.specimen h4,.specimen p{margin:0}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.16em}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chips{display:flex;gap:6px}
+.chips span{flex:1;height:30px}
+.venn{display:block;width:100%;max-width:300px;margin:0 auto}
+.ph{font-size:11px;opacity:.7;margin-top:6px}
+
+/* ───── A · Junction: diagram-led ───── */
+.A .specimen{background:#0B1020;color:#E8EBF7;font-family:Inter,sans-serif;border-radius:6px}
+.A .hero{padding:26px 24px 22px;position:relative}
+.A .brand{display:flex;align-items:center;gap:10px;margin-bottom:26px}
+.A .brand svg{width:34px;height:34px}
+.A .brand b{font-weight:600;font-size:15px}
+.A .kicker{font-family:"JetBrains Mono",monospace;color:#8FA3E0;letter-spacing:.08em}
+.A h3{font-weight:600;font-size:30px;line-height:1.15;margin:8px 0 12px;letter-spacing:-.01em}
+.A .hero p.sub{color:#AFB7D4;max-width:40ch}
+.A .legend{display:flex;gap:16px;margin-top:20px;font-family:"JetBrains Mono",monospace;font-size:12px}
+.A .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.A .sec{padding:20px 24px;border-top:1px solid #222B4A}
+.A .card{background:#121934;border:1px solid #26305A;border-radius:10px;padding:16px 16px 16px 18px;position:relative}
+.A .card::before{content:"";position:absolute;left:-1px;top:14px;bottom:14px;width:3px;border-radius:3px;background:linear-gradient(#6888D9,#8E7FE0)}
+.A .card .where{font-family:"JetBrains Mono",monospace;font-size:11px;color:#9DAFE6;margin-bottom:8px}
+.A h4{font-size:18px;font-weight:600;margin-bottom:6px}
+.A .card p{font-size:14px;color:#AFB7D4}
+.A .tags span{font-family:"JetBrains Mono",monospace;font-size:11px;padding:3px 8px;border:1px solid #33407A;border-radius:999px;color:#C5CEF0}
+.A .chips span{border-radius:4px}
+
+/* ───── B · Manual: type-led, editorial ───── */
+.B .specimen{background:#111112;color:#EDEDEA;font-family:Inter,sans-serif;border-radius:0}
+.B .hero{padding:26px 24px 24px}
+.B .brand{display:flex;align-items:center;justify-content:space-between;margin-bottom:34px;padding-bottom:12px;border-bottom:1px solid #3A3A3D}
+.B .brand svg{width:26px;height:26px}
+.B .brand b{font-weight:500;font-size:13px;letter-spacing:.02em}
+.B .kicker{color:#9A9AA0}
+.B h3{font-family:"Source Serif 4",serif;font-weight:400;font-size:36px;line-height:1.12;margin:10px 0 14px;letter-spacing:-.01em}
+.B .hero p.sub{color:#B9B9BD;max-width:40ch;font-size:15px}
+.B .legend{display:none}
+.B .sec{padding:18px 24px;border-top:1px solid #3A3A3D}
+.B .num{font-family:"Source Serif 4",serif;font-size:13px;color:#58C1DB;margin-bottom:10px;display:flex;gap:10px;align-items:baseline}
+.B .num span{color:#9A9AA0;font-family:Inter,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+.B .card{padding:0}
+.B .card .where{font-size:12px;color:#9A9AA0;margin-bottom:6px}
+.B h4{font-family:"Source Serif 4",serif;font-size:22px;font-weight:600;margin-bottom:6px}
+.B .card p{font-size:14px;color:#B9B9BD}
+.B .tags span{font-size:12px;color:#9A9AA0}
+.B .tags span+span::before{content:"· ";}
+.B .tags{gap:4px}
+.B .chips span{border-radius:0}
+
+/* ───── C · Signal: colour-led, expressive ───── */
+.C .specimen{background:#0A0D1C;color:#fff;font-family:Inter,sans-serif;border-radius:18px}
+.C .hero{padding:26px 24px 28px;background:#4338B8;position:relative;overflow:hidden}
+.C .hero .big{position:absolute;right:-110px;top:-90px;width:300px;height:300px;opacity:.55}
+.C .brand{display:flex;align-items:center;gap:10px;margin-bottom:40px;position:relative}
+.C .brand svg{width:34px;height:34px}
+.C .brand b{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:16px}
+.C .kicker{color:#CFE9F5;position:relative}
+.C h3{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:38px;line-height:1.02;margin:8px 0 14px;letter-spacing:-.02em;position:relative}
+.C .hero p.sub{color:#E3E0FA;max-width:34ch;position:relative}
+.C .legend{display:none}
+.C .sec{padding:18px 18px}
+.C .card{background:#58C1DB;color:#06222A;border-radius:18px;padding:18px}
+.C .card .where{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.C h4{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:700;margin-bottom:6px;line-height:1.1}
+.C .card p{font-size:14px}
+.C .tags span{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:#06222A;color:#fff}
+.C .chips span{border-radius:999px}
+</style>
+</head>
+<body>
+<div class="board">
+  <header class="board-head">
+    <h1>Round <span>directions-01</span>: which creative direction?</h1>
+    <span class="meta"><span class="status">exploration</span> · Ewa Jabłońska — technical-writing.net · 2026-11-12 · fixed: name, three-arc idea, blue / purple / aqua family, dark first</span>
+  </header>
+  <p class="question"><strong>Question:</strong> which visual idea carries "the writer connects technology, product and users"? Same content in every column. The headline is the <em>current</em> site text (Ewa writes the new one). The arc mark is a <em>draft</em>; the logo has its own round later. Recommendation: A, because it shows the three-area connection without text and keeps the most recognition.</p>
+
+  <div class="grid">
+
+    <!-- ============ A ============ -->
+    <section class="variant A" data-id="A" data-fonts="Inter|JetBrains Mono">
+      <div class="col-head"><h2>A · Junction</h2><p>Diagram-led. Each area has one colour: Technology blue, Product purple, Users aqua. Arcs and dots mark where areas meet, on every page.</p><p><em>Trade-off:</em> needs discipline: colour is a code, not decoration.</p></div>
+      <div class="font-warning">Font not loaded: render uses a fallback</div>
+      <div class="specimen">
+        <div class="hero">
+          <div class="brand">
+            <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-width="7"><path d="M50 20Q72 28 74 58" stroke="#8E7FE0"/><circle cx="50" cy="20" r="7" fill="#8E7FE0"/><path d="M40 27Q24 42 25 66" stroke="#58C1DB"/><circle cx="25" cy="68" r="7" fill="#58C1DB"/><path d="M36 76Q56 82 76 70" stroke="#6888D9"/><circle cx="78" cy="69" r="7" fill="#6888D9"/></svg>
+            <b>Ewa Jabłońska</b>
+          </div>
+          <p class="kicker">Technical Writing Portfolio</p>
+          <h3>Technical writing is more than content.</h3>
+          <p class="sub">This portfolio explores how documentation, tooling, and process come together in practice.</p>
+          <div class="legend"><span><i style="background:#6888D9"></i>Technology</span><span><i style="background:#8E7FE0"></i>Product</span><span><i style="background:#58C1DB"></i>Users</span></div>
+        </div>
+        <div class="sec">
+          <svg class="venn" viewBox="0 0 300 250" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">
+            <circle cx="150" cy="92" r="72" fill="#6888D9" fill-opacity=".14" stroke="#6888D9" stroke-width="1.5"/>
+            <circle cx="108" cy="160" r="72" fill="#8E7FE0" fill-opacity=".14" stroke="#8E7FE0" stroke-width="1.5"/>
+            <circle cx="192" cy="160" r="72" fill="#58C1DB" fill-opacity=".14" stroke="#58C1DB" stroke-width="1.5"/>
+            <text x="150" y="52" fill="#C9D4F5" font-weight="600">Technology</text>
+            <text x="78" y="196" fill="#D5CEF5" font-weight="600">Product</text>
+            <text x="222" y="196" fill="#BFE8F3" font-weight="600">Users</text>
+            <circle cx="150" cy="140" r="5" fill="#fff"/><text x="150" y="160" fill="#fff" font-size="10">Ewa + AI</text>
+            <circle cx="112" cy="116" r="4" fill="#7B84DD"/><circle cx="188" cy="116" r="4" fill="#60A5DA"/><circle cx="150" cy="186" r="4" fill="#73A0DE"/>
+          </svg>
+        </div>
+        <div class="sec">
+          <div class="card">
+            <p class="where">Technology ∩ Product</p>
+            <h4>Promo Video Skill</h4>
+            <p>Documentation for an AI skill, written so that both the people who use it and the model that runs it can understand what it does, when to use it, and where its limits are.</p>
+            <div class="tags"><span>AI-friendly</span><span>Skills</span><span>Product</span></div>
+          </div>
+        </div>
+        <div class="sec"><div class="chips"><span style="background:#6888D9"></span><span style="background:#8E7FE0"></span><span style="background:#58C1DB"></span><span style="background:#E8EBF7"></span><span style="background:#121934;border:1px solid #26305A"></span><span style="background:#0B1020;border:1px solid #26305A"></span></div></div>
+      </div>
+      <dl class="notes"><dt>Serves</dt><dd>Pillar 2 (connection), personality: structured, in charge.</dd><dt>Type</dt><dd>Inter (kept) + JetBrains Mono for labels.</dd><dt>Criteria</dt><dd>1 partly (mono can read "developer") · 2 meets · 3 meets · 4 meets · 5 meets · 6 meets</dd></dl>
+    </section>
+
+    <!-- ============ B ============ -->
+    <section class="variant B" data-id="B" data-fonts="Source Serif 4|Inter">
+      <div class="col-head"><h2>B · Manual</h2><p>Type-led. The page looks like a well-made document: serif headlines, numbered sections, thin rules. Colour is only in the mark and the diagram.</p><p><em>Trade-off:</em> calm and "writer", but less recognition and less energy than the current site.</p></div>
+      <div class="font-warning">Font not loaded: render uses a fallback</div>
+      <div class="specimen">
+        <div class="hero">
+          <div class="brand">
+            <b>Ewa Jabłońska</b>
+            <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-width="7"><path d="M50 20Q72 28 74 58" stroke="#8E7FE0"/><circle cx="50" cy="20" r="7" fill="#8E7FE0"/><path d="M40 27Q24 42 25 66" stroke="#58C1DB"/><circle cx="25" cy="68" r="7" fill="#58C1DB"/><path d="M36 76Q56 82 76 70" stroke="#6888D9"/><circle cx="78" cy="69" r="7" fill="#6888D9"/></svg>
+          </div>
+          <p class="kicker">Technical Writing Portfolio</p>
+          <h3>Technical writing is more than content.</h3>
+          <p class="sub">This portfolio explores how documentation, tooling, and process come together in practice.</p>
+        </div>
+        <div class="sec">
+          <p class="num">01 <span>Concept</span></p>
+          <svg class="venn" viewBox="0 0 300 250" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">
+            <circle cx="150" cy="92" r="72" fill="none" stroke="#EDEDEA" stroke-width="1"/>
+            <circle cx="108" cy="160" r="72" fill="none" stroke="#EDEDEA" stroke-width="1"/>
+            <circle cx="192" cy="160" r="72" fill="none" stroke="#EDEDEA" stroke-width="1"/>
+            <text x="150" y="52" fill="#EDEDEA" font-family="'Source Serif 4',serif" font-size="14">Technology</text>
+            <text x="78" y="196" fill="#EDEDEA" font-family="'Source Serif 4',serif" font-size="14">Product</text>
+            <text x="222" y="196" fill="#EDEDEA" font-family="'Source Serif 4',serif" font-size="14">Users</text>
+            <path d="M150 112 Q172 138 150 172 Q128 138 150 112Z" fill="#58C1DB" fill-opacity=".9" transform="translate(0,-4)"/>
+            <text x="150" y="247" fill="#9A9AA0" font-size="11">centre: Ewa + AI</text>
+          </svg>
+        </div>
+        <div class="sec">
+          <p class="num">02 <span>Projects</span></p>
+          <div class="card">
+            <p class="where">Technology and Product</p>
+            <h4>Promo Video Skill</h4>
+            <p>Documentation for an AI skill, written so that both the people who use it and the model that runs it can understand what it does, when to use it, and where its limits are.</p>
+            <div class="tags"><span>AI-friendly</span><span>Skills</span><span>Product</span></div>
+          </div>
+        </div>
+        <div class="sec"><div class="chips"><span style="background:#58C1DB"></span><span style="background:#EDEDEA"></span><span style="background:#9A9AA0"></span><span style="background:#3A3A3D"></span><span style="background:#111112;border:1px solid #3A3A3D"></span></div></div>
+      </div>
+      <dl class="notes"><dt>Serves</dt><dd>Pillar 1 (docs in the centre), personality: clear, human.</dd><dt>Type</dt><dd>Source Serif 4 headlines + Inter text.</dd><dt>Criteria</dt><dd>1 meets · 2 partly (only in the diagram) · 3 meets · 4 partly (colour family nearly gone) · 5 meets · 6 meets</dd></dl>
+    </section>
+
+    <!-- ============ C ============ -->
+    <section class="variant C" data-id="C" data-fonts="Space Grotesk|Inter">
+      <div class="col-head"><h2>C · Signal</h2><p>Colour-led. Large solid colour fields, big cropped arcs, bold geometric headlines. Each project owns a colour block.</p><p><em>Trade-off:</em> strong and memorable, but can read "designer / startup" more than "technical writer". Harder on docs sites and a CV.</p></div>
+      <div class="font-warning">Font not loaded: render uses a fallback</div>
+      <div class="specimen">
+        <div class="hero">
+          <svg class="big" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-width="9"><path d="M50 20Q72 28 74 58" stroke="#8E7FE0"/><circle cx="50" cy="20" r="9" fill="#8E7FE0"/><path d="M40 27Q24 42 25 66" stroke="#58C1DB"/><circle cx="25" cy="68" r="9" fill="#58C1DB"/><path d="M36 76Q56 82 76 70" stroke="#9DAFE6"/><circle cx="78" cy="69" r="9" fill="#9DAFE6"/></svg>
+          <div class="brand">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="7"><path d="M50 20Q72 28 74 58"/><circle cx="50" cy="20" r="7" fill="#fff"/><path d="M40 27Q24 42 25 66"/><circle cx="25" cy="68" r="7" fill="#fff"/><path d="M36 76Q56 82 76 70"/><circle cx="78" cy="69" r="7" fill="#fff"/></svg>
+            <b>Ewa Jabłońska</b>
+          </div>
+          <p class="kicker">Technical Writing Portfolio</p>
+          <h3>Technical writing is more than content.</h3>
+          <p class="sub">This portfolio explores how documentation, tooling, and process come together in practice.</p>
+        </div>
+        <div class="sec">
+          <svg class="venn" viewBox="0 0 300 250" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+            <circle cx="150" cy="92" r="72" fill="#4464AD"/>
+            <circle cx="108" cy="160" r="72" fill="#7B6CC7" style="mix-blend-mode:screen"/>
+            <circle cx="192" cy="160" r="72" fill="#4498AD" style="mix-blend-mode:screen"/>
+            <text x="150" y="52" fill="#fff">Technology</text>
+            <text x="78" y="196" fill="#fff">Product</text>
+            <text x="222" y="196" fill="#fff">Users</text>
+            <text x="150" y="146" fill="#0A0D1C" font-size="11">Ewa + AI</text>
+          </svg>
+        </div>
+        <div class="sec">
+          <div class="card">
+            <p class="where">Technology × Product</p>
+            <h4>Promo Video Skill</h4>
+            <p>Documentation for an AI skill, written so that both the people who use it and the model that runs it can understand what it does, when to use it, and where its limits are.</p>
+            <div class="tags"><span>AI-friendly</span><span>Skills</span><span>Product</span></div>
+          </div>
+        </div>
+        <div class="sec"><div class="chips"><span style="background:#4338B8"></span><span style="background:#4464AD"></span><span style="background:#58C1DB"></span><span style="background:#8E7FE0"></span><span style="background:#fff"></span><span style="background:#0A0D1C;border:1px solid #333"></span></div></div>
+      </div>
+      <dl class="notes"><dt>Serves</dt><dd>Personality: in charge; difference from text-only portfolios.</dd><dt>Type</dt><dd>Space Grotesk headlines + Inter text.</dd><dt>Criteria</dt><dd>1 partly (reads "designer") · 2 partly · 3 partly (close to loud) · 4 meets · 5 partly (needs strict light rules) · 6 no (hard on docs themes and CV)</dd></dl>
+    </section>
+  </div>
+</div>
+<script>
+document.fonts.ready.then(()=>{
+  let missing=false;
+  document.querySelectorAll('.variant').forEach(v=>{
+    const loaded=[...document.fonts].filter(x=>x.status==='loaded').map(x=>x.family.replace(/"/g,''));const bad=v.dataset.fonts.split('|').some(f=>!loaded.includes(f));
+    if(bad){v.classList.add('font-missing');missing=true;}
+  });
+  if(missing)document.documentElement.setAttribute('data-font-missing','1');
+});
+</script>
+</body>
+</html>
