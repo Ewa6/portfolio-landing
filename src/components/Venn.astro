@@ -1,0 +1,81 @@
+---
+// Venn diagram venn-01/B (brand/graphic/venn-on-dark.svg, decisions D15–D17).
+// Two drawings of the same diagram:
+// - wide: the brand file, for screens 560 px and wider;
+// - narrow: for phones. Less empty space around the circles, larger circles
+//   and larger text, so that the smallest text is about 12 px at 375 px.
+// Project names link to their cards (SCRUM-147).
+// Colours come from the brand tokens, so the diagram follows dark and light mode.
+const title =
+    "Technology, Product, and Users: where each skill meets a project";
+const desc =
+    "Venn diagram with three areas: Technology, Product, and Users. Promo Video Skill is where Technology and Product meet. StickerStart is where Product and Users meet. Quoteable Service API is where Technology and Users meet. In the centre: Technical Writer + AI.";
+---
+
+<figure class="venn">
+    <svg
+        class="venn__wide"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 30 900 530"
+        role="group"
+        aria-labelledby="venn-wide-t venn-wide-d"
+        font-family="Inter, system-ui, sans-serif"
+    >
+        <title id="venn-wide-t">{title}</title>
+        <desc id="venn-wide-d">{desc}</desc>
+        <g stroke-width="2">
+            <circle class="c-technology" cx="450" cy="210" r="170"></circle>
+            <circle class="c-product" cx="352" cy="370" r="170"></circle>
+            <circle class="c-users" cx="548" cy="370" r="170"></circle>
+        </g>
+        <g font-size="26" font-weight="600" text-anchor="middle">
+            <text class="t-technology" x="450" y="118">Technology</text>
+            <text class="t-product" x="275" y="450">Product</text>
+            <text class="t-users" x="625" y="450">Users</text>
+        </g>
+        <g font-size="15" font-weight="600" text-anchor="middle">
+            <a href="#skill-docs-card" class="venn__link"><text class="t-project" x="352" y="262">Promo Video</text>
+            <text class="t-project" x="352" y="280">Skill</text></a>
+            <a href="#api-docs-link" class="venn__link"><text class="t-project" x="548" y="262">Quoteable</text>
+            <text class="t-project" x="548" y="280">Service API</text></a>
+            <a href="#stickerstart-card" class="venn__link"><text class="t-project" x="450" y="430">StickerStart</text></a>
+            <text class="t-centre" x="450" y="312">Technical</text>
+            <text class="t-centre" x="450" y="330">Writer</text>
+            <text class="t-centre" x="450" y="348">+ AI</text>
+        </g>
+    </svg>
+
+    <svg
+        class="venn__narrow"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="168 22 564 540"
+        role="group"
+        aria-labelledby="venn-narrow-t venn-narrow-d"
+        font-family="Inter, system-ui, sans-serif"
+    >
+        <title id="venn-narrow-t">{title}</title>
+        <desc id="venn-narrow-d">{desc}</desc>
+        <g stroke-width="2.5">
+            <circle class="c-technology" cx="450" cy="210" r="185"></circle>
+            <circle class="c-product" cx="350" cy="372" r="185"></circle>
+            <circle class="c-users" cx="550" cy="372" r="185"></circle>
+        </g>
+        <g font-size="31" font-weight="600" text-anchor="middle">
+            <text class="t-technology" x="450" y="98">Technology</text>
+            <text class="t-product" x="262" y="470">Product</text>
+            <text class="t-users" x="638" y="470">Users</text>
+        </g>
+        <g font-size="20" font-weight="600" text-anchor="middle">
+            <a href="#skill-docs-card" class="venn__link"><text class="t-project" x="336" y="242">Promo</text>
+            <text class="t-project" x="336" y="265">Video Skill</text></a>
+            <a href="#api-docs-link" class="venn__link"><text class="t-project" x="564" y="242">Quoteable</text>
+            <text class="t-project" x="564" y="265">Service API</text></a>
+            <a href="#stickerstart-card" class="venn__link"><text class="t-project" x="450" y="452">StickerStart</text></a>
+        </g>
+        <g font-size="19" font-weight="600" text-anchor="middle">
+            <text class="t-centre" x="450" y="312">Technical</text>
+            <text class="t-centre" x="450" y="334">Writer</text>
+            <text class="t-centre" x="450" y="356">+ AI</text>
+        </g>
+    </svg>
+</figure>

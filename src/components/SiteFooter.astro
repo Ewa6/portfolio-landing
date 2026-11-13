@@ -1,0 +1,22 @@
+---
+// Shared site footer. "Cookie settings" opens the cookie banner again
+// (see CookieConsent.astro, [data-cookie-settings]).
+---
+
+<footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Ewa Jabłońska</p>
+    <div class="site-footer__links">
+        <span>Built with Astro</span>
+        <button type="button" data-cookie-settings class="text-link">
+            Cookie settings
+        </button>
+        <a
+            href="https://github.com/Ewa6/portfolio-landing"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-link"
+        >
+            View repo
+        </a>
+    </div>
+</footer>

@@ -1,19 +1,45 @@
 ---
 import "../styles/global.css";
 import CookieConsent from "../components/CookieConsent.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 interface Props {
   title?: string;
   description?: string;
+  /** Dark mode only (brand: dark first). Blog articles follow the visitor's setting. */
+  forceDark?: boolean;
 }
 
-const { title = "Rishikesh S - Portfolio", description = "My Portfolio" } =
-  Astro.props;
+const {
+  title = "Ewa Jabłońska | Technical writing portfolio",
+  description = "Technical writer who connects technology, product, and users. Documentation for people and AI, a product case study, and an API documentation sample.",
+  forceDark = false,
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html
+  lang="en"
+  class={forceDark ? "dark" : undefined}
+  data-force-dark={forceDark ? "" : undefined}
+>
   <head>
+    <script is:inline>
+      // Set the colour mode before the first paint.
+      (() => {
+        const root = document.documentElement;
+        if (root.hasAttribute("data-force-dark")) return;
+        let theme = null;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch {}
+        if (!theme) {
+          theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        root.classList.toggle("dark", theme === "dark");
+      })();
+    </script>
     <!-- Google tag (gtag.js), loaded only after cookie consent -->
     <script is:inline>
       (() => {
@@ -87,71 +113,29 @@ const { title = "Rishikesh S - Portfolio", description = "My Portfolio" } =
     </script>
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B1020" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/favicon-180.png" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Inter is served from this site: no request to Google Fonts before consent. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/inter-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
   </head>
-  <body
-    class="min-h-screen bg-background font-sans antialiased selection:bg-purple-500/30"
-  >
-    <div
-      class="fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    >
+  <body class="min-h-screen antialiased">
+    <div class="page">
+      <SiteHeader />
+      <slot />
+      <SiteFooter />
     </div>
-    <slot />
     <CookieConsent />
   </body>
 </html>
-
-<script is:inline>
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  };
-  const isDark = getThemePreference() === "dark";
-  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-  if (typeof localStorage !== "undefined") {
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-  }
-</script>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    scroll-behavior: smooth;
-  }
-
-  :root {
-    --transition-standard: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  body {
-    transition:
-      background-color var(--transition-standard),
-      color var(--transition-standard);
-  }
-</style>
