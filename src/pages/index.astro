@@ -130,10 +130,18 @@ const iconProps = {
                 </ul>
             </section>
 
-            {/* ON HOLD (copy deck 2.5, SCRUM-152): the "Live preview" box is
-                removed. Its replacement is one line in a .note-box:
-                "In November 2026 this portfolio got a new direction. Read why:
-                <post title>." Add it when the SCRUM-151 post exists. */}
+            {/* Copy deck 2.5 (SCRUM-152): one line with a link to the
+                direction-change post (SCRUM-151). Link text = post title. */}
+            <div class="note-box">
+                <p class="note-box__content">
+                    In November 2026, this portfolio got a new direction. Read
+                    why:{" "}
+                    <a href="/blog/portfolio-direction-changed-twice">
+                        I started this portfolio one year ago. AI changed its
+                        direction twice</a
+                    >.
+                </p>
+            </div>
         </div>
 
         {/* ── Concept ──────────────────────────────────────────── */}
@@ -281,8 +289,9 @@ const iconProps = {
 
             <div class="prose-block mb-6">
                 <p>
-                    Posts from my earlier technical writing blog, revisited and
-                    updated to reflect how I approach the field today.
+                    Selected posts from my earlier technical writing blog,
+                    updated to reflect how I approach the field today. New
+                    posts appear here too.
                 </p>
             </div>
 
