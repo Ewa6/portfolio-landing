@@ -19,7 +19,7 @@ const projects: {
     title: string;
     areas: [Area, Area];
     skill: string;
-    status: "Finished" | "In progress";
+    status: "Finished" | "Live" | "In progress";
     description: string;
     /** Extra link in the description. It is outside the card link (no nested links). */
     extra?: { before: string; text: string; href: string; after: string };
@@ -49,12 +49,22 @@ const projects: {
         title: "StickerStart",
         areas: ["product", "users"],
         skill: "Brand, marketing, adoption",
-        status: "In progress",
-        // ON HOLD (copy deck 4.4): the new description and tags go live only
-        // when the card links to the case study (SCRUM-149). Until then: old text.
+        // "Live": the product works and still grows (Ewa, 2026-11-15).
+        status: "Live",
+        // Ewa, 2026-11-15: the card links to the live product, like the other
+        // cards. The old description stays. The copy deck 4.4 text is not used
+        // (no case study page for now, SCRUM-149).
         description:
             "Printable chore boards for families, built and documented with AI as a working partner. The documentation covers the product itself and the story around it: what it is for, who it helps, and why they would pick it.",
+        // Polish version of the product site (hreflang="pl" on stickerstart.eu).
+        extra: {
+            before: "The site also has a ",
+            text: "Polish version",
+            href: "https://niezamulaj.pl/",
+            after: ".",
+        },
         tags: ["AI-assisted", "User documentation", "Product"],
+        href: "https://stickerstart.eu/",
     },
     {
         id: "api-docs-link",
@@ -217,10 +227,7 @@ const iconProps = {
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     class="project-card__extra-link"
-                                                >
-                                                    {project.extra.text}
-                                                </a>
-                                                {project.extra.after}
+                                                >{project.extra.text}</a>{project.extra.after}
                                             </>
                                         )}
                                     </p>
@@ -233,7 +240,7 @@ const iconProps = {
                                         <span
                                             class:list={[
                                                 "status",
-                                                project.status === "Finished" &&
+                                                project.status !== "In progress" &&
                                                     "status--finished",
                                             ]}
                                         >

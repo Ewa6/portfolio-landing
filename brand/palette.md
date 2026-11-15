@@ -13,7 +13,7 @@ Status: production (approved by Ewa, D18). Source of truth: [tokens.css](tokens.
 - Use an area colour only to say "this belongs to this area". A project that sits between two areas shows both colours (two nodes, or a two-colour line).
 - Do not use area colours for status, links, buttons or decoration.
 - Always put a text label next to the colour. Colour alone does not carry meaning.
-- Status: "Finished" = filled neutral pill. "In progress" = outline neutral pill.
+- Status: "Finished" and "Live" = filled neutral pill. "In progress" = outline neutral pill. "Live" = the product works and still grows.
 
 ## Neutrals and actions
 | Role | Dark | Light |
